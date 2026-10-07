@@ -1335,20 +1335,22 @@
 
   <!-- FLOATING WHATSAPP CHAT WIDGET -->
   <div class="no-print">
-    <!-- Floating Trigger Button -->
-    <button id="whatsapp-trigger-btn" type="button" class="whatsapp-float-btn relative" aria-label="Chat with Safari on WhatsApp">
+    <!-- Floating Trigger Button (Fixed on All Pages / Scrolls) -->
+    <button id="whatsapp-trigger-btn" type="button" class="whatsapp-float-btn" style="position: fixed !important; bottom: 28px !important; right: 28px !important; z-index: 99999 !important;" aria-label="Chat with Safari on WhatsApp">
       <span class="whatsapp-pulse-ring"></span>
       <!-- WhatsApp Official SVG Icon -->
-      <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+      <svg class="w-6 h-6 fill-current shrink-0" viewBox="0 0 24 24">
         <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.772.82 2.791.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.806-5.768-5.806zm3.385 8.163c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.115-.516-1.815-.751-2.983-2.588-3.074-2.709-.091-.121-.734-.977-.734-1.865 0-.888.464-1.325.63-1.506.166-.182.363-.227.484-.227.121 0 .242.001.348.006.113.006.264-.043.413.315.152.364.521 1.272.566 1.363.045.091.076.197.015.318-.06.121-.09.197-.181.303-.091.106-.192.237-.274.318-.091.091-.186.19-.08.372.106.182.471.777 1.011 1.258.696.62 1.282.812 1.464.903.182.091.288.076.394-.045.106-.121.454-.53.576-.712.121-.182.242-.152.409-.091.167.061 1.06.5 1.242.591.182.091.303.136.348.212.045.076.045.439-.099.844zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2.05 22l4.978-1.306A9.946 9.946 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.636 0-3.155-.522-4.398-1.411l-.315-.227-2.955.775.789-2.88-.205-.327A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167 4.503 0 8.167 3.664 8.167 8.167 0 4.503-3.664 8.167-8.167 8.167z"/>
       </svg>
-      <span>Chat on WhatsApp</span>
+      <span class="tracking-wide">Chat on WhatsApp</span>
       <span class="w-2.5 h-2.5 rounded-full bg-white animate-pulse"></span>
     </button>
 
-    <!-- Interactive WhatsApp Chat Card Window -->
-    <div id="whatsapp-chat-box" class="whatsapp-chat-box hidden" data-phone="">
+
+    <!-- Interactive WhatsApp Chat Card Window (Fixed directly above button) -->
+    <div id="whatsapp-chat-box" class="whatsapp-chat-box hidden" style="position: fixed !important; bottom: 96px !important; right: 28px !important; z-index: 99999 !important;" data-phone="">
       <!-- Header -->
+
       <div class="bg-[#075E54] text-white p-4 flex items-center justify-between">
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center font-bold text-lg text-white">
