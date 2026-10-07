@@ -32,6 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Network Status Simulation
   setupNetworkStatus();
+
+  // WhatsApp Floating Widget
+  setupWhatsAppWidget();
 });
 
 /* -------------------------------------------------------------
@@ -776,4 +779,83 @@ function showToast(message, type = 'info') {
   }
 
   setTimeout(dismiss, 4500);
+}
+
+/* -------------------------------------------------------------
+ * 10. WhatsApp Floating Chat Widget Engine
+ * ----------------------------------------------------------- */
+function setupWhatsAppWidget() {
+  const triggerBtn = document.getElementById('whatsapp-trigger-btn');
+  const chatBox = document.getElementById('whatsapp-chat-box');
+  const closeBtn = document.getElementById('whatsapp-close-btn');
+  const sendForm = document.getElementById('whatsapp-send-form');
+  const inputEl = document.getElementById('whatsapp-msg-input');
+  const quickChips = document.querySelectorAll('[data-wa-prompt]');
+
+  if (!triggerBtn || !chatBox) return;
+
+  function toggleChat() {
+    const isHidden = chatBox.classList.contains('hidden');
+    if (isHidden) {
+      chatBox.classList.remove('hidden');
+      if (inputEl) inputEl.focus();
+    } else {
+      chatBox.classList.add('hidden');
+    }
+  }
+
+  function closeChat() {
+    if (chatBox) chatBox.classList.add('hidden');
+  }
+
+  triggerBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    toggleChat();
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeChat);
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!chatBox.classList.contains('hidden') && 
+        !chatBox.contains(e.target) && 
+        !triggerBtn.contains(e.target)) {
+      closeChat();
+    }
+  });
+
+  // Close on Escape
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !chatBox.classList.contains('hidden')) {
+      closeChat();
+    }
+  });
+
+  // Phone number (can be configured via data-phone on chatBox or defaults to direct chat)
+  const phone = chatBox.getAttribute('data-phone') || '';
+
+  function openWhatsApp(message) {
+    const text = encodeURIComponent(message || "Hi Safari Solutions! I'd like to inquire about your POS, PMS & ERP software.");
+    const waUrl = phone 
+      ? `https://wa.me/${phone.replace(/[^0-9]/g, '')}?text=${text}`
+      : `https://wa.me/?text=${text}`;
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
+    closeChat();
+  }
+
+  if (sendForm) {
+    sendForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const msg = inputEl ? inputEl.value.trim() : '';
+      openWhatsApp(msg);
+      if (inputEl) inputEl.value = '';
+    });
+  }
+
+  quickChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const prompt = chip.getAttribute('data-wa-prompt') || chip.textContent.trim();
+      openWhatsApp(prompt);
+    });
+  });
 }

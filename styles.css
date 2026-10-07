@@ -128,7 +128,7 @@ dialog[open] {
 /* Toast styling */
 .toast-container {
   position: fixed;
-  bottom: 24px;
+  bottom: 96px;
   right: 24px;
   z-index: 9999;
   display: flex;
@@ -156,9 +156,67 @@ dialog[open] {
   }
 }
 
+/* WhatsApp Floating Widget & Interactive Card */
+.whatsapp-float-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #25D366;
+  color: #ffffff;
+  padding: 11px 18px;
+  border-radius: 9999px;
+  box-shadow: 0 6px 22px rgba(37, 211, 102, 0.45);
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.whatsapp-float-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.6);
+  background-color: #20ba5a;
+}
+
+.whatsapp-pulse-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  border: 2px solid #25D366;
+  animation: wa-pulse 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes wa-pulse {
+  0% { transform: scale(0.95); opacity: 0.9; }
+  50% { transform: scale(1.18); opacity: 0.3; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+.whatsapp-chat-box {
+  position: fixed;
+  bottom: 84px;
+  right: 24px;
+  width: 340px;
+  max-width: calc(100vw - 32px);
+  z-index: 9998;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: bottom right;
+}
+
 /* Print Styles for USALI Reports */
 @media print {
-  header, footer, #demo, #roi, #faq, .no-print {
+  header, footer, #demo, #roi, #faq, .no-print, .whatsapp-float-btn, .whatsapp-chat-box {
     display: none !important;
   }
   #usali {
@@ -166,3 +224,4 @@ dialog[open] {
     color: #000000 !important;
   }
 }
+

@@ -69,10 +69,15 @@
           <i data-lucide="wifi-off" class="w-3.5 h-3.5"></i> Test Offline Mode
         </button>
         <span class="text-slate-600">|</span>
+        <a href="https://wa.me/?text=Hi%20Safari%20Solutions,%20I'd%20like%20to%20inquire%20about%20your%20POS,%20PMS%20&%20USALI%20ERP%20software." target="_blank" rel="noopener" class="text-emerald-400 hover:text-emerald-300 font-semibold transition flex items-center gap-1">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> WhatsApp
+        </a>
+        <span class="text-slate-600">|</span>
         <a href="#demo" class="text-slate-300 hover:text-safari-100 font-medium transition">24/7 Priority Support Desk</a>
       </div>
     </div>
   </div>
+
 
   <!-- NAVIGATION HEADER -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all">
@@ -1328,7 +1333,86 @@
     </div>
   </dialog>
 
+  <!-- FLOATING WHATSAPP CHAT WIDGET -->
+  <div class="no-print">
+    <!-- Floating Trigger Button -->
+    <button id="whatsapp-trigger-btn" type="button" class="whatsapp-float-btn relative" aria-label="Chat with Safari on WhatsApp">
+      <span class="whatsapp-pulse-ring"></span>
+      <!-- WhatsApp Official SVG Icon -->
+      <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.772.82 2.791.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.806-5.768-5.806zm3.385 8.163c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.115-.516-1.815-.751-2.983-2.588-3.074-2.709-.091-.121-.734-.977-.734-1.865 0-.888.464-1.325.63-1.506.166-.182.363-.227.484-.227.121 0 .242.001.348.006.113.006.264-.043.413.315.152.364.521 1.272.566 1.363.045.091.076.197.015.318-.06.121-.09.197-.181.303-.091.106-.192.237-.274.318-.091.091-.186.19-.08.372.106.182.471.777 1.011 1.258.696.62 1.282.812 1.464.903.182.091.288.076.394-.045.106-.121.454-.53.576-.712.121-.182.242-.152.409-.091.167.061 1.06.5 1.242.591.182.091.303.136.348.212.045.076.045.439-.099.844zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2.05 22l4.978-1.306A9.946 9.946 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.636 0-3.155-.522-4.398-1.411l-.315-.227-2.955.775.789-2.88-.205-.327A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167 4.503 0 8.167 3.664 8.167 8.167 0 4.503-3.664 8.167-8.167 8.167z"/>
+      </svg>
+      <span>Chat on WhatsApp</span>
+      <span class="w-2.5 h-2.5 rounded-full bg-white animate-pulse"></span>
+    </button>
+
+    <!-- Interactive WhatsApp Chat Card Window -->
+    <div id="whatsapp-chat-box" class="whatsapp-chat-box hidden" data-phone="">
+      <!-- Header -->
+      <div class="bg-[#075E54] text-white p-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center font-bold text-lg text-white">
+            <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.772.82 2.791.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.806-5.768-5.806zm3.385 8.163c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.115-.516-1.815-.751-2.983-2.588-3.074-2.709-.091-.121-.734-.977-.734-1.865 0-.888.464-1.325.63-1.506.166-.182.363-.227.484-.227.121 0 .242.001.348.006.113.006.264-.043.413.315.152.364.521 1.272.566 1.363.045.091.076.197.015.318-.06.121-.09.197-.181.303-.091.106-.192.237-.274.318-.091.091-.186.19-.08.372.106.182.471.777 1.011 1.258.696.62 1.282.812 1.464.903.182.091.288.076.394-.045.106-.121.454-.53.576-.712.121-.182.242-.152.409-.091.167.061 1.06.5 1.242.591.182.091.303.136.348.212.045.076.045.439-.099.844zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2.05 22l4.978-1.306A9.946 9.946 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.636 0-3.155-.522-4.398-1.411l-.315-.227-2.955.775.789-2.88-.205-.327A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167 4.503 0 8.167 3.664 8.167 8.167 0 4.503-3.664 8.167-8.167 8.167z"/>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm leading-tight text-white">Safari Support Desk</h4>
+            <p class="text-[11px] text-emerald-200 flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Typically replies in minutes
+            </p>
+          </div>
+        </div>
+        <button id="whatsapp-close-btn" type="button" class="text-white/80 hover:text-white p-1 rounded-lg hover:bg-white/10 transition" aria-label="Close chat window">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Chat Body -->
+      <div class="p-4 bg-[#E5DDD5] space-y-3 max-h-72 overflow-y-auto">
+        <!-- Message Bubble -->
+        <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-xs text-slate-800 space-y-1 max-w-[90%]">
+          <p class="leading-relaxed">
+            👋 <strong>Hi there!</strong> Welcome to Safari Integrated Solutions.
+          </p>
+          <p class="text-slate-600 leading-relaxed">
+            How can we assist you with our <strong>POS</strong>, <strong>PMS</strong>, or <strong>USALI-compliant ERP</strong> today? Tap a quick option or message us!
+          </p>
+          <span class="text-[10px] text-slate-400 block text-right">Just now</span>
+        </div>
+
+        <!-- Quick Action Prompt Chips -->
+        <div class="space-y-1.5 pt-1">
+          <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">Quick Inquiries:</span>
+          <button type="button" data-wa-prompt="Hi Safari Team! I would like to schedule a live demo of your POS & PMS." class="w-full text-left p-2 rounded-xl bg-white/95 hover:bg-white border border-slate-300 text-slate-800 text-xs font-semibold hover:border-[#25D366] transition shadow-xs flex items-center justify-between">
+            <span>🚀 Schedule a Live Demo</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-slate-400"></i>
+          </button>
+          <button type="button" data-wa-prompt="Hello, I want to know pricing options for my property." class="w-full text-left p-2 rounded-xl bg-white/95 hover:bg-white border border-slate-300 text-slate-800 text-xs font-semibold hover:border-[#25D366] transition shadow-xs flex items-center justify-between">
+            <span>💰 Inquire About Pricing</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-slate-400"></i>
+          </button>
+          <button type="button" data-wa-prompt="Hi, I would like to ask about USALI Chart of Accounts compliance." class="w-full text-left p-2 rounded-xl bg-white/95 hover:bg-white border border-slate-300 text-slate-800 text-xs font-semibold hover:border-[#25D366] transition shadow-xs flex items-center justify-between">
+            <span>📊 USALI Financials Question</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-slate-400"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Footer Message Input -->
+      <div class="p-3 bg-white border-t border-slate-200">
+        <form id="whatsapp-send-form" class="flex items-center gap-2">
+          <input id="whatsapp-msg-input" type="text" placeholder="Type a message..." class="flex-1 px-3 py-2 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:border-[#25D366] focus:ring-1 focus:ring-[#25D366]" />
+          <button type="submit" class="w-9 h-9 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white flex items-center justify-center transition shadow shrink-0" aria-label="Send WhatsApp message">
+            <i data-lucide="send" class="w-4 h-4"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <!-- Core JavaScript Engine -->
   <script src="app.js"></script>
 </body>
 </html>
+
