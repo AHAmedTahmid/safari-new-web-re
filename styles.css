@@ -215,28 +215,12 @@ dialog[open] {
 }
 
 
-/* Reporting & Business Intelligence Console Styling */
-#report-live-console {
-  box-shadow: 0 25px 60px -15px rgba(106, 118, 12, 0.18), 0 0 0 1px rgba(255, 255, 255, 0.08);
-}
-
-#reports-modal[open] {
-  animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.line-clamp-1 {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
 /* Print Styles for USALI Reports */
 @media print {
   header, footer, #demo, #roi, #faq, .no-print, .whatsapp-float-btn, .whatsapp-chat-box {
     display: none !important;
   }
-  #usali, #reporting {
+  #usali {
     background: #ffffff !important;
     color: #000000 !important;
   }
