@@ -33,11 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Network Status Simulation
   setupNetworkStatus();
 
-  // WhatsApp Floating Widget
-  setupWhatsAppWidget();
-
-  // Contact Dock & Call Sales Engine (Matches User Screenshots)
-  setupContactDock();
+  // Unified 3-Layer Contact Widget (WhatsApp, Message, Call)
+  setupUnifiedContactWidget();
 });
 
 /* -------------------------------------------------------------
@@ -785,147 +782,163 @@ function showToast(message, type = 'info') {
 }
 
 /* -------------------------------------------------------------
- * 10. WhatsApp Floating Chat Widget Engine
+ * 10. Unified 3-Layer Contact Dock & Card (WhatsApp, Message, Call)
+ * Matches Safari Brand Olive (#6A760C) & WhatsApp (#25D366) Theme
  * ----------------------------------------------------------- */
-function setupWhatsAppWidget() {
-  const triggerBtn = document.getElementById('whatsapp-trigger-btn');
-  const chatBox = document.getElementById('whatsapp-chat-box');
-  const closeBtn = document.getElementById('whatsapp-close-btn');
-  const sendForm = document.getElementById('whatsapp-send-form');
-  const inputEl = document.getElementById('whatsapp-msg-input');
-  const quickChips = document.querySelectorAll('[data-wa-prompt]');
-
-  if (!triggerBtn || !chatBox) return;
-
-  function toggleChat() {
-    const isHidden = chatBox.classList.contains('hidden');
-    if (isHidden) {
-      chatBox.classList.remove('hidden');
-      if (inputEl) inputEl.focus();
-    } else {
-      chatBox.classList.add('hidden');
-    }
-  }
-
-  function closeChat() {
-    if (chatBox) chatBox.classList.add('hidden');
-  }
-
-  triggerBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    toggleChat();
-  });
-
-  if (closeBtn) closeBtn.addEventListener('click', closeChat);
-
-  // Close on outside click
-  document.addEventListener('click', (e) => {
-    if (!chatBox.classList.contains('hidden') && 
-        !chatBox.contains(e.target) && 
-        !triggerBtn.contains(e.target)) {
-      closeChat();
-    }
-  });
-
-  // Close on Escape
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !chatBox.classList.contains('hidden')) {
-      closeChat();
-    }
-  });
-
-  // Phone number (can be configured via data-phone on chatBox or defaults to direct chat)
-  const phone = chatBox.getAttribute('data-phone') || '';
-
-  function openWhatsApp(message) {
-    const text = encodeURIComponent(message || "Hi Safari Solutions! I'd like to inquire about your POS, PMS & ERP software.");
-    const waUrl = phone 
-      ? `https://wa.me/${phone.replace(/[^0-9]/g, '')}?text=${text}`
-      : `https://wa.me/?text=${text}`;
-    window.open(waUrl, '_blank', 'noopener,noreferrer');
-    closeChat();
-  }
-
-  if (sendForm) {
-    sendForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const msg = inputEl ? inputEl.value.trim() : '';
-      openWhatsApp(msg);
-      if (inputEl) inputEl.value = '';
-    });
-  }
-
-  quickChips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      const prompt = chip.getAttribute('data-wa-prompt') || chip.textContent.trim();
-      openWhatsApp(prompt);
-    });
-  });
-}
-
-/* -------------------------------------------------------------
- * 11. Contact Dock & Call Sales Popup Card (User Screenshots 1 & 2)
- * ----------------------------------------------------------- */
-function setupContactDock() {
-  const dockBtn = document.getElementById('contact-dock-btn');
-  const chatDockBtn = document.getElementById('dock-chat-btn');
+function setupUnifiedContactWidget() {
+  const dock = document.getElementById('safari-contact-dock');
+  const waDockBtn = document.getElementById('dock-whatsapp-btn');
+  const msgDockBtn = document.getElementById('dock-message-btn');
   const callDockBtn = document.getElementById('dock-call-btn');
-  const popupCard = document.getElementById('contact-popup-card');
-  const closeBtn = document.getElementById('contact-popup-close');
+
+  const card = document.getElementById('safari-contact-card');
+  const cardCloseBtn = document.getElementById('safari-card-close-btn');
+
+  const layerWa = document.getElementById('card-layer-whatsapp');
+  const layerMsg = document.getElementById('card-layer-message');
+  const layerCall = document.getElementById('card-layer-call');
+
+  const msgToggleTrigger = document.getElementById('message-toggle-trigger');
+  const msgActionBtn = document.getElementById('message-action-btn');
+  const quickInquiryBox = document.getElementById('quick-inquiry-box');
+  const msgForm = document.getElementById('safari-quick-msg-form');
+  const msgInput = document.getElementById('safari-quick-msg-input');
+  const promptChips = document.querySelectorAll('[data-prompt-chip]');
+
   const countryToggle = document.getElementById('country-numbers-toggle');
   const countryList = document.getElementById('country-numbers-list');
 
-  if (!popupCard) return;
+  if (!card) return;
 
-  function openCard() {
-    popupCard.classList.remove('hidden');
+  function openCard(focusLayer) {
+    card.classList.remove('hidden');
+
+    // Reset temporary highlight rings
+    [layerWa, layerMsg, layerCall].forEach(l => {
+      if (l) l.classList.remove('ring-2', 'ring-safari', 'ring-emerald-400');
+    });
+
+    if (focusLayer === 'whatsapp' && layerWa) {
+      layerWa.classList.add('ring-2', 'ring-emerald-400');
+      setTimeout(() => layerWa.classList.remove('ring-2', 'ring-emerald-400'), 1600);
+    } else if (focusLayer === 'message' && layerMsg) {
+      layerMsg.classList.add('ring-2', 'ring-safari');
+      if (quickInquiryBox && quickInquiryBox.classList.contains('hidden')) {
+        quickInquiryBox.classList.remove('hidden');
+      }
+      if (msgInput) msgInput.focus();
+      setTimeout(() => layerMsg.classList.remove('ring-2', 'ring-safari'), 1600);
+    } else if (focusLayer === 'call' && layerCall) {
+      layerCall.classList.add('ring-2', 'ring-safari');
+      setTimeout(() => layerCall.classList.remove('ring-2', 'ring-safari'), 1600);
+    }
   }
 
   function closeCard() {
-    popupCard.classList.add('hidden');
+    card.classList.add('hidden');
     if (countryList) countryList.classList.add('hidden');
   }
 
   function toggleCard() {
-    if (popupCard.classList.contains('hidden')) {
+    if (card.classList.contains('hidden')) {
       openCard();
     } else {
       closeCard();
     }
   }
 
-  if (dockBtn) {
-    dockBtn.addEventListener('click', (e) => {
-      if (e.target.closest('#dock-chat-btn') || e.target.closest('#dock-call-btn')) {
-        return;
-      }
-      toggleCard();
+  // Dock Buttons Interactions
+  if (waDockBtn) {
+    waDockBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openCard('whatsapp');
     });
   }
 
-  if (chatDockBtn) {
-    chatDockBtn.addEventListener('click', (e) => {
+  if (msgDockBtn) {
+    msgDockBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      const text = encodeURIComponent("Hi Safari Solutions! I'd like to inquire about your POS, PMS & ERP software.");
-      window.open(`https://wa.me/?text=${text}`, '_blank', 'noopener,noreferrer');
-      showToast('Opening WhatsApp Chat...', 'success');
+      openCard('message');
     });
   }
 
   if (callDockBtn) {
     callDockBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      openCard();
+      openCard('call');
     });
   }
 
-  if (closeBtn) {
-    closeBtn.addEventListener('click', (e) => {
+  // Click on dock background toggles card
+  if (dock) {
+    dock.addEventListener('click', (e) => {
+      if (e.target.closest('.dock-layer-btn')) return;
+      toggleCard();
+    });
+  }
+
+  // Close button inside card
+  if (cardCloseBtn) {
+    cardCloseBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       closeCard();
     });
   }
 
+  // Expand / collapse message inquiry panel
+  function toggleMessageInquiry() {
+    if (quickInquiryBox) {
+      quickInquiryBox.classList.toggle('hidden');
+      if (!quickInquiryBox.classList.contains('hidden') && msgInput) {
+        msgInput.focus();
+      }
+    }
+  }
+
+  if (msgToggleTrigger) {
+    msgToggleTrigger.addEventListener('click', (e) => {
+      if (e.target.closest('#message-action-btn')) return;
+      toggleMessageInquiry();
+    });
+  }
+
+  if (msgActionBtn) {
+    msgActionBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMessageInquiry();
+    });
+  }
+
+  // Quick prompt chips
+  promptChips.forEach(chip => {
+    chip.addEventListener('click', (e) => {
+      e.preventDefault();
+      const text = chip.getAttribute('data-prompt-chip') || chip.textContent.trim();
+      if (msgInput) {
+        msgInput.value = text;
+        msgInput.focus();
+      }
+    });
+  });
+
+  // Message Form Submission (Sends via WhatsApp with clean prompt)
+  if (msgForm) {
+    msgForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const text = msgInput ? msgInput.value.trim() : '';
+      if (!text) {
+        if (msgInput) msgInput.focus();
+        return;
+      }
+      const encoded = encodeURIComponent(`Hi Safari Solutions Team! ${text}`);
+      window.open(`https://wa.me/?text=${encoded}`, '_blank', 'noopener,noreferrer');
+      showToast('Opening chat with your inquiry...', 'success');
+      if (msgInput) msgInput.value = '';
+      closeCard();
+    });
+  }
+
+  // Expandable Country Numbers list
   if (countryToggle && countryList) {
     countryToggle.addEventListener('click', (e) => {
       e.preventDefault();
@@ -936,18 +949,26 @@ function setupContactDock() {
 
   // Close on outside click
   document.addEventListener('click', (e) => {
-    if (!popupCard.classList.contains('hidden') &&
-        !popupCard.contains(e.target) &&
-        dockBtn && !dockBtn.contains(e.target)) {
+    if (!card.classList.contains('hidden') &&
+        !card.contains(e.target) &&
+        dock && !dock.contains(e.target)) {
       closeCard();
     }
   });
 
-  // Close on Escape
+  // Close on Escape key
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !popupCard.classList.contains('hidden')) {
+    if (e.key === 'Escape' && !card.classList.contains('hidden')) {
       closeCard();
     }
   });
+}
+
+// Backward compatibility aliases
+function setupWhatsAppWidget() {
+  setupUnifiedContactWidget();
+}
+function setupContactDock() {
+  setupUnifiedContactWidget();
 }
 

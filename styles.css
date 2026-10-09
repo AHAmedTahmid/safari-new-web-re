@@ -156,117 +156,139 @@ dialog[open] {
   }
 }
 
-/* WhatsApp Floating Widget & Interactive Card */
-.whatsapp-float-btn {
-  position: fixed !important;
-  bottom: 28px !important;
-  right: 28px !important;
-  z-index: 99999 !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 10px !important;
-  background-color: #25D366 !important;
-  color: #ffffff !important;
-  padding: 13px 22px !important;
-  border-radius: 9999px !important;
-  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.55) !important;
-  font-weight: 800 !important;
-  font-size: 14px !important;
-  cursor: pointer !important;
-  border: 2px solid #ffffff !important;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
+/* ============================================================
+ * Safari 3-Layer Contact Widget (WhatsApp, Message, Call)
+ * Strictly matches Safari Olive (#6A760C) & WhatsApp (#25D366) theme
+ * ============================================================ */
 
-.whatsapp-float-btn:hover {
-  transform: translateY(-4px) scale(1.03) !important;
-  box-shadow: 0 12px 35px rgba(37, 211, 102, 0.7) !important;
-  background-color: #20ba5a !important;
-}
-
-.whatsapp-pulse-ring {
-  position: absolute !important;
-  inset: -6px !important;
-  border-radius: 9999px !important;
-  border: 3px solid #25D366 !important;
-  animation: wa-pulse 2s cubic-bezier(0.24, 0, 0.38, 1) infinite !important;
-  pointer-events: none !important;
-}
-
-@keyframes wa-pulse {
-  0% { transform: scale(0.95); opacity: 0.9; }
-  50% { transform: scale(1.18); opacity: 0.3; }
-  100% { transform: scale(1.35); opacity: 0; }
-}
-
-.whatsapp-chat-box {
-  position: fixed !important;
-  bottom: 96px !important;
-  right: 28px !important;
-  width: 350px !important;
-  max-width: calc(100vw - 36px) !important;
-  z-index: 99999 !important;
-  background: #ffffff !important;
-  border-radius: 20px !important;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25) !important;
-  border: 1px solid #e2e8f0 !important;
-  overflow: hidden !important;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  transform-origin: bottom right !important;
-}
-
-
-/* Contact & Call Sales Dock (Matches User Screenshots) */
-.contact-dock-btn {
+/* Vertical 3-Layer Contact Dock (Pinned to right edge across all pages/scrolls) */
+.safari-contact-dock {
   position: fixed !important;
   right: 0 !important;
   bottom: 110px !important;
   z-index: 99999 !important;
   background: #ffffff !important;
   border-radius: 18px 0 0 18px !important;
-  box-shadow: -4px 6px 25px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: -4px 6px 25px rgba(15, 23, 42, 0.15) !important;
   border: 1px solid #e2e8f0 !important;
   border-right: none !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  padding: 10px 8px !important;
-  gap: 8px !important;
+  padding: 8px 6px !important;
+  gap: 2px !important;
   cursor: pointer !important;
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.contact-dock-btn:hover {
+.safari-contact-dock:hover {
   transform: translateX(-4px) !important;
-  box-shadow: -6px 8px 30px rgba(0, 0, 0, 0.22) !important;
+  box-shadow: -6px 8px 30px rgba(15, 23, 42, 0.22) !important;
 }
 
-.contact-popup-card {
+/* Individual Layer Button in Dock */
+.dock-layer-btn {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 12px !important;
+  border: none !important;
+  background: transparent !important;
+  cursor: pointer !important;
+  transition: all 0.18s ease !important;
+}
+
+.dock-layer-btn:hover {
+  background: #f7f9e8 !important;
+}
+
+#dock-whatsapp-btn:hover {
+  background: #ecfdf5 !important;
+}
+
+/* Dock Tooltips */
+.dock-tooltip {
+  position: absolute !important;
+  right: 52px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background: #0f172a !important;
+  color: #ffffff !important;
+  padding: 4px 9px !important;
+  border-radius: 6px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.15s ease, visibility 0.15s ease !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18) !important;
+  z-index: 100000 !important;
+}
+
+.dock-tooltip::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 100% !important;
+  transform: translateY(-50%) !important;
+  border-width: 4px !important;
+  border-style: solid !important;
+  border-color: transparent transparent transparent #0f172a !important;
+}
+
+.dock-layer-btn:hover .dock-tooltip {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Divider between Dock buttons */
+.dock-divider {
+  width: 24px !important;
+  height: 1px !important;
+  background: #e2e8f0 !important;
+  margin: 2px 0 !important;
+}
+
+/* 3-Layer Popup Card (Desktop & Mobile) */
+.safari-contact-card {
   position: fixed !important;
-  right: 68px !important;
-  bottom: 80px !important;
-  width: 320px !important;
-  max-width: calc(100vw - 32px) !important;
+  right: 64px !important;
+  bottom: 85px !important;
+  width: 340px !important;
+  max-width: calc(100vw - 28px) !important;
   background: #ffffff !important;
-  border-radius: 20px !important;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22) !important;
+  border-radius: 22px !important;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.22), 0 1px 3px rgba(0, 0, 0, 0.05) !important;
   border: 1px solid #e2e8f0 !important;
   z-index: 99999 !important;
-  animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  overflow: hidden !important;
+  animation: safariCardPop 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+@keyframes safariCardPop {
+  0% { opacity: 0; transform: scale(0.92) translateY(12px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 @media (max-width: 640px) {
-  .contact-dock-btn {
+  .safari-contact-dock {
     bottom: 84px !important;
   }
-  .contact-popup-card {
-    right: 16px !important;
-    bottom: 90px !important;
+  .safari-contact-card {
+    right: 12px !important;
+    bottom: 80px !important;
+    width: calc(100vw - 24px) !important;
   }
 }
 
 /* Print Styles for USALI Reports */
 @media print {
-  header, footer, #demo, #roi, #faq, .no-print, .whatsapp-float-btn, .whatsapp-chat-box, .contact-dock-btn, .contact-popup-card {
+  header, footer, #demo, #roi, #faq, .no-print, .safari-contact-dock, .safari-contact-card {
     display: none !important;
   }
   #usali {
