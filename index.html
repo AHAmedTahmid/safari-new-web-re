@@ -1321,8 +1321,110 @@
     </div>
   </dialog>
 
-  <!-- FLOATING WHATSAPP CHAT WIDGET -->
+  <!-- FLOATING WHATSAPP CHAT & CALL SALES WIDGET -->
   <div class="no-print">
+    <!-- DOCKED VERTICAL CONTACT TAB (MATCHES USER SCREENSHOT 2) -->
+    <div id="contact-dock-btn" class="contact-dock-btn" style="position: fixed !important; right: 0 !important; bottom: 105px !important; z-index: 99999 !important;" title="Contact Safari (Chat & Call)">
+      <!-- Chat Icon (Terracotta speech bubble with 3 dots) -->
+      <button id="dock-chat-btn" type="button" class="p-1.5 rounded-xl hover:bg-rose-50 transition text-[#C2452D]" aria-label="Chat now (WhatsApp)">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-4.586l-3.707 3.707A1 1 0 0 1 10 21v-3H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
+          <circle cx="8" cy="11" r="1.3" fill="white"/>
+          <circle cx="12" cy="11" r="1.3" fill="white"/>
+          <circle cx="16" cy="11" r="1.3" fill="white"/>
+        </svg>
+      </button>
+
+      <!-- Divider Line -->
+      <div class="w-6 h-px bg-slate-200 my-0.5"></div>
+
+      <!-- Call Icon (Terracotta ringing phone receiver) -->
+      <button id="dock-call-btn" type="button" class="p-1.5 rounded-xl hover:bg-rose-50 transition text-[#C2452D]" aria-label="Call Sales (1800 672 2531)">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          <path d="M14.05 2a9 9 0 0 1 8 7.94" stroke-width="2"/>
+          <path d="M14.05 6A5 5 0 0 1 18 10" stroke-width="2"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- POPUP CONTACT & CALL SALES CARD (MATCHES USER SCREENSHOT 1) -->
+    <div id="contact-popup-card" class="contact-popup-card hidden p-6" style="position: fixed !important; right: 62px !important; bottom: 85px !important; z-index: 99999 !important;">
+      <!-- Close Button -->
+      <button id="contact-popup-close" type="button" class="absolute top-4 right-4 text-slate-700 hover:text-slate-900 p-1.5 rounded-lg hover:bg-slate-100 transition" aria-label="Close contact card">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Chat Now Action (Links to WhatsApp) -->
+      <a href="https://wa.me/?text=Hi%20Safari%20Solutions,%20I'd%20like%20to%20inquire%20about%20your%20POS,%20PMS%20&amp;%20USALI%20ERP%20software." target="_blank" rel="noopener" class="flex items-center gap-3.5 group py-1 hover:opacity-90 transition">
+        <div class="w-9 h-9 rounded-xl bg-rose-50 flex items-center justify-center shrink-0 group-hover:scale-105 transition">
+          <svg class="w-6 h-6 text-[#C2452D]" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-4.586l-3.707 3.707A1 1 0 0 1 10 21v-3H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
+            <circle cx="8" cy="11" r="1.3" fill="white"/>
+            <circle cx="12" cy="11" r="1.3" fill="white"/>
+            <circle cx="16" cy="11" r="1.3" fill="white"/>
+          </svg>
+        </div>
+        <div class="leading-tight">
+          <span class="text-xl font-bold text-[#005C8A] group-hover:text-safari transition block">Chat now</span>
+          <span class="text-[11px] text-emerald-600 font-semibold flex items-center gap-1 mt-0.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> WhatsApp Online
+          </span>
+        </div>
+      </a>
+
+      <!-- Divider Line -->
+      <div class="w-full h-px bg-slate-200 my-4"></div>
+
+      <!-- Call Sales Action -->
+      <div class="space-y-1">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-rose-50 flex items-center justify-center shrink-0">
+            <svg class="w-6 h-6 text-[#C2452D]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              <path d="M14.05 2a9 9 0 0 1 8 7.94" stroke-width="2"/>
+              <path d="M14.05 6A5 5 0 0 1 18 10" stroke-width="2"/>
+            </svg>
+          </div>
+          <span class="text-base font-semibold text-slate-800">Call Sales</span>
+        </div>
+
+        <!-- Sample Phone Number: 1800 672 2531 -->
+        <a href="tel:18006722531" class="text-[26px] font-black text-slate-900 tracking-tight block hover:text-[#C2452D] transition font-sans pt-1">
+          1800 672 2531
+        </a>
+
+        <!-- Complete list of local country numbers link -->
+        <button type="button" id="country-numbers-toggle" class="text-xs text-[#006699] hover:underline transition font-medium block pt-1 text-left">
+          Complete list of local country numbers
+        </button>
+
+        <!-- Expandable Local Country Numbers List -->
+        <div id="country-numbers-list" class="hidden mt-3 p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-2">
+          <div class="flex justify-between items-center text-slate-700">
+            <span class="font-medium">🇺🇸 US &amp; Global (Toll-Free)</span>
+            <a href="tel:18006722531" class="font-mono font-bold text-slate-900 hover:text-safari">1800 672 2531</a>
+          </div>
+          <div class="flex justify-between items-center text-slate-700">
+            <span class="font-medium">🇬🇧 United Kingdom</span>
+            <a href="tel:+442079460991" class="font-mono font-bold text-slate-900 hover:text-safari">+44 20 7946 0991</a>
+          </div>
+          <div class="flex justify-between items-center text-slate-700">
+            <span class="font-medium">🇦🇪 UAE &amp; Middle East</span>
+            <a href="tel:+97143120000" class="font-mono font-bold text-slate-900 hover:text-safari">+971 4 312 0000</a>
+          </div>
+          <div class="flex justify-between items-center text-slate-700">
+            <span class="font-medium">🇧🇩 Bangladesh / Asia</span>
+            <a href="tel:+8801800723274" class="font-mono font-bold text-slate-900 hover:text-safari">+880 1800-SAFARI</a>
+          </div>
+          <p class="text-[10px] text-slate-400 pt-1 border-t border-slate-200">Sample numbers shown. Update anytime in your configuration.</p>
+        </div>
+      </div>
+    </div>
+
     <!-- Floating Trigger Button (Fixed on All Pages / Scrolls) -->
     <button id="whatsapp-trigger-btn" type="button" class="whatsapp-float-btn" style="position: fixed !important; bottom: 28px !important; right: 28px !important; z-index: 99999 !important;" aria-label="Chat with Safari on WhatsApp">
       <span class="whatsapp-pulse-ring"></span>

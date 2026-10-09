@@ -215,9 +215,58 @@ dialog[open] {
 }
 
 
+/* Contact & Call Sales Dock (Matches User Screenshots) */
+.contact-dock-btn {
+  position: fixed !important;
+  right: 0 !important;
+  bottom: 110px !important;
+  z-index: 99999 !important;
+  background: #ffffff !important;
+  border-radius: 18px 0 0 18px !important;
+  box-shadow: -4px 6px 25px rgba(0, 0, 0, 0.15) !important;
+  border: 1px solid #e2e8f0 !important;
+  border-right: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 10px 8px !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.contact-dock-btn:hover {
+  transform: translateX(-4px) !important;
+  box-shadow: -6px 8px 30px rgba(0, 0, 0, 0.22) !important;
+}
+
+.contact-popup-card {
+  position: fixed !important;
+  right: 68px !important;
+  bottom: 80px !important;
+  width: 320px !important;
+  max-width: calc(100vw - 32px) !important;
+  background: #ffffff !important;
+  border-radius: 20px !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22) !important;
+  border: 1px solid #e2e8f0 !important;
+  z-index: 99999 !important;
+  animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+@media (max-width: 640px) {
+  .contact-dock-btn {
+    bottom: 84px !important;
+  }
+  .contact-popup-card {
+    right: 16px !important;
+    bottom: 90px !important;
+  }
+}
+
 /* Print Styles for USALI Reports */
 @media print {
-  header, footer, #demo, #roi, #faq, .no-print, .whatsapp-float-btn, .whatsapp-chat-box {
+  header, footer, #demo, #roi, #faq, .no-print, .whatsapp-float-btn, .whatsapp-chat-box, .contact-dock-btn, .contact-popup-card {
     display: none !important;
   }
   #usali {

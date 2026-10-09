@@ -35,6 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // WhatsApp Floating Widget
   setupWhatsAppWidget();
+
+  // Contact Dock & Call Sales Engine (Matches User Screenshots)
+  setupContactDock();
 });
 
 /* -------------------------------------------------------------
@@ -859,3 +862,92 @@ function setupWhatsAppWidget() {
     });
   });
 }
+
+/* -------------------------------------------------------------
+ * 11. Contact Dock & Call Sales Popup Card (User Screenshots 1 & 2)
+ * ----------------------------------------------------------- */
+function setupContactDock() {
+  const dockBtn = document.getElementById('contact-dock-btn');
+  const chatDockBtn = document.getElementById('dock-chat-btn');
+  const callDockBtn = document.getElementById('dock-call-btn');
+  const popupCard = document.getElementById('contact-popup-card');
+  const closeBtn = document.getElementById('contact-popup-close');
+  const countryToggle = document.getElementById('country-numbers-toggle');
+  const countryList = document.getElementById('country-numbers-list');
+
+  if (!popupCard) return;
+
+  function openCard() {
+    popupCard.classList.remove('hidden');
+  }
+
+  function closeCard() {
+    popupCard.classList.add('hidden');
+    if (countryList) countryList.classList.add('hidden');
+  }
+
+  function toggleCard() {
+    if (popupCard.classList.contains('hidden')) {
+      openCard();
+    } else {
+      closeCard();
+    }
+  }
+
+  if (dockBtn) {
+    dockBtn.addEventListener('click', (e) => {
+      if (e.target.closest('#dock-chat-btn') || e.target.closest('#dock-call-btn')) {
+        return;
+      }
+      toggleCard();
+    });
+  }
+
+  if (chatDockBtn) {
+    chatDockBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const text = encodeURIComponent("Hi Safari Solutions! I'd like to inquire about your POS, PMS & ERP software.");
+      window.open(`https://wa.me/?text=${text}`, '_blank', 'noopener,noreferrer');
+      showToast('Opening WhatsApp Chat...', 'success');
+    });
+  }
+
+  if (callDockBtn) {
+    callDockBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openCard();
+    });
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeCard();
+    });
+  }
+
+  if (countryToggle && countryList) {
+    countryToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      countryList.classList.toggle('hidden');
+    });
+  }
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!popupCard.classList.contains('hidden') &&
+        !popupCard.contains(e.target) &&
+        dockBtn && !dockBtn.contains(e.target)) {
+      closeCard();
+    }
+  });
+
+  // Close on Escape
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !popupCard.classList.contains('hidden')) {
+      closeCard();
+    }
+  });
+}
+
