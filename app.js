@@ -723,14 +723,14 @@ function setupNetworkStatus() {
     isOnline = !isOnline;
 
     if (isOnline) {
-      statusPill.className = 'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 text-[11px] font-semibold border border-emerald-200';
-      statusPill.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Cloud & Offline Synced';
-      toggleBtn.innerHTML = '<i data-lucide="wifi-off" class="w-3.5 h-3.5 text-slate-500"></i> Test Offline Mode';
+      statusPill.className = 'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-950/80 text-emerald-300 text-[11px] font-semibold border border-emerald-800/60';
+      statusPill.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Cloud & Offline Synced';
+      toggleBtn.innerHTML = '<i data-lucide="wifi-off" class="w-3.5 h-3.5"></i> <span>Test Offline Mode</span>';
       showToast('Network Reconnected: All offline transactions instantly synchronized.', 'success');
     } else {
-      statusPill.className = 'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-50 text-amber-800 text-[11px] font-semibold border border-amber-200';
-      statusPill.innerHTML = '<span class="w-2 h-2 rounded-full bg-amber-500"></span> Offline Mode (Local Cache Active)';
-      toggleBtn.innerHTML = '<i data-lucide="wifi" class="w-3.5 h-3.5 text-slate-500"></i> Restore Cloud Link';
+      statusPill.className = 'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-950/80 text-amber-300 text-[11px] font-semibold border border-amber-800/60';
+      statusPill.innerHTML = '<span class="w-2 h-2 rounded-full bg-amber-400"></span> Offline Mode (Local Cache Active)';
+      toggleBtn.innerHTML = '<i data-lucide="wifi" class="w-3.5 h-3.5"></i> <span>Restore Cloud Link</span>';
       showToast('Offline Mode: Safari continues printing KOTs & billing without internet!', 'info');
     }
 

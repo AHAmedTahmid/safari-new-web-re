@@ -53,32 +53,6 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-safari selection:text-white">
 
-  <!-- TOP ANNOUNCEMENT & SYSTEM STATUS BAR -->
-  <div class="bg-slate-900 text-slate-300 text-xs py-2 px-6 border-b border-slate-800 hidden sm:block">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <span class="px-2 py-0.5 rounded bg-safari/30 text-safari-100 font-bold uppercase tracking-wider text-[10px] border border-safari/40">USALI 11th & 12th Ready</span>
-        <span>Chartered Accountant-verified general ledger for unified hospitality accounting.</span>
-      </div>
-      <div class="flex items-center gap-4 text-[11px]">
-        <div id="network-status-pill" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-950/80 text-emerald-300 border border-emerald-800/60 font-semibold">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>Cloud & Offline Synced</span>
-        </div>
-        <button id="toggle-offline-btn" type="button" class="text-slate-400 hover:text-white flex items-center gap-1 transition" title="Toggle simulation of network outage">
-          <i data-lucide="wifi-off" class="w-3.5 h-3.5"></i> Test Offline Mode
-        </button>
-        <span class="text-slate-600">|</span>
-        <a href="https://wa.me/?text=Hi%20Safari%20Solutions,%20I'd%20like%20to%20inquire%20about%20your%20POS,%20PMS%20&%20USALI%20ERP%20software." target="_blank" rel="noopener" class="text-emerald-400 hover:text-emerald-300 font-semibold transition flex items-center gap-1">
-          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> WhatsApp
-        </a>
-        <span class="text-slate-600">|</span>
-        <a href="#demo" class="text-slate-300 hover:text-safari-100 font-medium transition">24/7 Priority Support Desk</a>
-      </div>
-    </div>
-  </div>
-
-
   <!-- NAVIGATION HEADER -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -360,6 +334,31 @@
         <div class="text-3xl lg:text-5xl font-extrabold text-safari font-mono tracking-tight">8 Days</div>
         <div class="text-xs text-slate-500 uppercase tracking-wider font-bold mt-2">Deployment SLA</div>
         <p class="text-[11px] text-slate-400 mt-1">Zero operational business downtime</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE SYSTEM STATUS & USALI COMPLIANCE RIBBON (MIDDLE SECTION) -->
+  <section class="bg-slate-900 text-slate-300 py-3.5 px-6 border-y border-slate-800 relative z-10 shadow-sm">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 text-center md:text-left text-xs">
+        <span class="px-2.5 py-1 rounded bg-safari/30 text-safari-100 font-bold uppercase tracking-wider text-[10px] border border-safari/40 shrink-0">USALI 11th &amp; 12th Ready</span>
+        <span class="text-slate-200 font-medium">Chartered Accountant-verified general ledger for unified hospitality accounting.</span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-4 text-[11px]">
+        <div id="network-status-pill" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-950/80 text-emerald-300 border border-emerald-800/60 font-semibold">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Cloud &amp; Offline Synced</span>
+        </div>
+        <button id="toggle-offline-btn" type="button" class="text-slate-300 hover:text-white flex items-center gap-1.5 transition" title="Toggle simulation of network outage">
+          <i data-lucide="wifi-off" class="w-3.5 h-3.5"></i> <span>Test Offline Mode</span>
+        </button>
+        <span class="text-slate-600 hidden sm:inline">|</span>
+        <a href="https://wa.me/?text=Hi%20Safari%20Solutions,%20I'd%20like%20to%20inquire%20about%20your%20POS,%20PMS%20&amp;%20USALI%20ERP%20software." target="_blank" rel="noopener" class="text-emerald-400 hover:text-emerald-300 font-semibold transition flex items-center gap-1.5">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> <span>WhatsApp</span>
+        </a>
+        <span class="text-slate-600 hidden sm:inline">|</span>
+        <a href="#demo" class="text-slate-300 hover:text-safari-100 font-medium transition">24/7 Priority Support Desk</a>
       </div>
     </div>
   </section>
