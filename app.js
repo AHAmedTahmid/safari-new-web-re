@@ -82,71 +82,71 @@ function setupMobileMenu() {
  * ----------------------------------------------------------- */
 const consoleViews = {
   pms: {
-    title: 'Safari PMS • Front Desk & Room Matrix',
-    metric1Label: 'Occupancy Rate (Today)',
+    title: 'Safari PMS • Hotel & Resort Complete Solution',
+    metric1Label: 'Occupancy Rate (Live Matrix)',
     metric1Value: '91.8%',
     metric1Sub: '165 of 180 Rooms Occupied',
-    metric2Label: 'Average Daily Rate (ADR)',
+    metric2Label: 'Daily RevPAR & Services',
     metric2Value: '$198.50',
-    metric2Sub: 'RevPAR: $182.22 (+14.2%)',
+    metric2Sub: 'Restaurant, Events & Amenities Synced',
     content: `
       <div class="bg-slate-800/60 p-3.5 rounded-xl border border-slate-700/60 space-y-2">
         <div class="flex justify-between text-xs text-slate-300">
-          <span class="font-medium">Arrivals / Departures (Live)</span>
-          <span class="text-safari-100 font-semibold font-mono">42 In / 38 Out</span>
+          <span class="font-medium">Hotel & Resort Complete Operations</span>
+          <span class="text-safari-100 font-semibold font-mono">All-in-One Live</span>
         </div>
         <div class="grid grid-cols-4 gap-2 text-center text-[11px] pt-1 font-mono">
           <div class="bg-slate-900/80 p-2 rounded border border-slate-700/50">
-            <span class="text-slate-400 block text-[9px]">RM 301</span>
-            <span class="text-green-400 font-bold">Checked-In</span>
+            <span class="text-slate-400 block text-[9px]">Front Office</span>
+            <span class="text-green-400 font-bold">42 Check-Ins</span>
           </div>
           <div class="bg-slate-900/80 p-2 rounded border border-slate-700/50">
-            <span class="text-slate-400 block text-[9px]">RM 302</span>
-            <span class="text-amber-400 font-bold">Cleaning</span>
+            <span class="text-slate-400 block text-[9px]">Housekeeping</span>
+            <span class="text-amber-400 font-bold">Inspected</span>
           </div>
           <div class="bg-slate-900/80 p-2 rounded border border-slate-700/50">
-            <span class="text-slate-400 block text-[9px]">RM 303</span>
-            <span class="text-blue-400 font-bold">Reserved</span>
+            <span class="text-slate-400 block text-[9px]">Events/Banquet</span>
+            <span class="text-blue-400 font-bold">Grand Hall</span>
           </div>
           <div class="bg-slate-900/80 p-2 rounded border border-safari/50 bg-safari-950/30">
-            <span class="text-safari-100 block text-[9px]">RM 304</span>
-            <span class="text-white font-bold">VIP Folio</span>
+            <span class="text-safari-100 block text-[9px]">Ticketing</span>
+            <span class="text-white font-bold">Pool/Passes</span>
           </div>
         </div>
       </div>
     `,
-    badge: 'Express Digital Key & Channel Sync Active'
+    badge: 'Front Office • Restaurant • Housekeeping • Events • Ticketing'
   },
   pos: {
-    title: 'Safari POS • Fine Dining & Outlets KDS',
-    metric1Label: 'Active Tables / Covers',
-    metric1Value: '38 Tables',
-    metric1Sub: '142 Active Guests Seated',
-    metric2Label: 'F&B Gross Today',
-    metric2Value: '$18,420.00',
-    metric2Sub: 'Sub-second sync with PMS folios',
+    title: 'Safari POS • Super Shop & Multi-Purpose Retail',
+    metric1Label: 'Active Checkout Counters',
+    metric1Value: '12 Active Lanes',
+    metric1Sub: 'Super Shop & Multi-Store Flow',
+    metric2Label: 'Today\'s Checkout Volume',
+    metric2Value: '$28,450.00',
+    metric2Sub: 'Barcode scan, scales & offline sync',
     content: `
       <div class="bg-slate-800/60 p-3.5 rounded-xl border border-slate-700/60 space-y-2">
         <div class="flex justify-between text-xs text-slate-300">
-          <span class="font-medium">Live Kitchen Display (KDS Routing)</span>
-          <span class="text-safari-100 font-semibold font-mono">Avg Prep: 7.4 min</span>
+          <span class="font-medium">Super Shop & Multi-Purpose Checkout</span>
+          <span class="text-safari-100 font-semibold font-mono">Sub-Second Scan</span>
         </div>
         <div class="space-y-1.5 text-[11px] font-mono">
           <div class="flex items-center justify-between p-1.5 bg-slate-900/80 rounded border border-slate-700/50">
-            <span class="text-slate-200">Table #14 • 4 Covers</span>
-            <span class="text-emerald-400 font-semibold">KOT Sent → Bar & Grill (Auto-Stock Out)</span>
+            <span class="text-slate-200">Lane #03 (Super Shop Express)</span>
+            <span class="text-emerald-400 font-semibold">Barcode Scanned • Stock Auto-Deducted</span>
           </div>
           <div class="flex items-center justify-between p-1.5 bg-slate-900/80 rounded border border-slate-700/50">
-            <span class="text-slate-200">Room 304 Room Charge</span>
-            <span class="text-safari-100 font-semibold">$145.00 Posted to Folio</span>
+            <span class="text-slate-200">Counter #07 (Weighing Scale / Retail)</span>
+            <span class="text-safari-100 font-semibold">$42.80 Paid (Drawer #2 Reconciled)</span>
           </div>
         </div>
       </div>
     `,
-    badge: 'Offline-First POS • Multi-Printer KOT Engine'
+    badge: 'Super Shop & Retail POS • Multi-Counter Cash Drawers • Offline Ready'
   },
   erp: {
-    title: 'Safari ERP • USALI Ledger & Procurement',
+    title: 'Safari ERP • Back-Office Financials, Supply, Inventory & Assets',
     metric1Label: 'USALI Operating Revenue',
     metric1Value: '$142,850',
     metric1Sub: '+18.4% vs same period last mo',
@@ -156,22 +156,26 @@ const consoleViews = {
     content: `
       <div class="bg-slate-800/60 p-3.5 rounded-xl border border-slate-700/60 space-y-2">
         <div class="flex justify-between text-xs text-slate-300">
-          <span class="font-medium">Automated Ledger Posting</span>
-          <span class="text-safari-100 font-semibold font-mono">CA Verified</span>
+          <span class="font-medium">Complete Back-Office Financials & Supply</span>
+          <span class="text-safari-100 font-semibold font-mono">Full Access Active</span>
         </div>
         <div class="space-y-1 text-[11px] font-mono">
           <div class="flex justify-between p-1.5 bg-slate-900/80 rounded border border-slate-700/50">
-            <span class="text-slate-300">4000 Rooms Revenue Schedule</span>
-            <span class="text-green-400 font-bold">$84,200.00</span>
+            <span class="text-slate-300">USALI Ledger & CA-Certified Balance</span>
+            <span class="text-green-400 font-bold">$142,850.00 Verified</span>
           </div>
           <div class="flex justify-between p-1.5 bg-slate-900/80 rounded border border-slate-700/50">
-            <span class="text-slate-300">5000 Food & Beverage Schedule</span>
-            <span class="text-green-400 font-bold">$32,650.00</span>
+            <span class="text-slate-300">Central Inventory & Recipe Depletion</span>
+            <span class="text-safari-100 font-semibold">14 Warehouses Synced</span>
+          </div>
+          <div class="flex justify-between p-1.5 bg-slate-900/80 rounded border border-slate-700/50">
+            <span class="text-slate-300">Fixed Assets Register & Depreciation</span>
+            <span class="text-slate-200 font-semibold">Auto-Calculated Schedules</span>
           </div>
         </div>
       </div>
     `,
-    badge: '100% USALI Certified • Biometric Payroll Ready'
+    badge: 'USALI Financials • Supply Chain • Inventory • Fixed Assets • Full Access'
   }
 };
 
