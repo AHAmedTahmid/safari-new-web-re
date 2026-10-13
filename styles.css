@@ -24,6 +24,15 @@
   background: #94a3b8;
 }
 
+/* Hide scrollbar for carousel track */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Range Input Custom Styling for ROI Calculator */
 input[type=range] {
   -webkit-appearance: none;

@@ -33,6 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Network Status Simulation
   setupNetworkStatus();
 
+  // Product Suite Interactive Carousel Slider
+  setupSuiteSlider();
+
   // Unified 3-Layer Contact Widget (WhatsApp, Message, Call)
   setupUnifiedContactWidget();
 });
@@ -1002,5 +1005,158 @@ function setupWhatsAppWidget() {
 }
 function setupContactDock() {
   setupUnifiedContactWidget();
+}
+
+/* -------------------------------------------------------------
+ * 10. Product Suite Interactive Carousel Slider
+ * ----------------------------------------------------------- */
+function setupSuiteSlider() {
+  const track = document.getElementById('suite-track');
+  const prevBtns = [
+    document.getElementById('suite-prev-btn'),
+    document.getElementById('suite-float-prev')
+  ].filter(Boolean);
+  const nextBtns = [
+    document.getElementById('suite-next-btn'),
+    document.getElementById('suite-float-next')
+  ].filter(Boolean);
+  const counterEl = document.getElementById('suite-counter');
+  const dotsContainer = document.getElementById('suite-dots-container');
+
+  if (!track) return;
+
+  const cards = Array.from(track.querySelectorAll('[data-suite-card]'));
+  const totalCards = cards.length;
+  if (totalCards === 0) return;
+
+  function getStep() {
+    const first = cards[0];
+    const second = cards[1];
+    if (first && second) {
+      return second.offsetLeft - first.offsetLeft;
+    }
+    return first ? first.offsetWidth + 32 : 400;
+  }
+
+  function getActiveIndex() {
+    const scrollLeft = track.scrollLeft;
+    let closestIndex = 0;
+    let minDiff = Infinity;
+    cards.forEach((card, i) => {
+      const diff = Math.abs(card.offsetLeft - track.offsetLeft - scrollLeft);
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestIndex = i;
+      }
+    });
+    return closestIndex;
+  }
+
+  function updateUI() {
+    const activeIndex = getActiveIndex();
+
+    // Update counter
+    if (counterEl) {
+      const activeCard = cards[activeIndex];
+      const title = activeCard ? activeCard.getAttribute('data-title') : '';
+      counterEl.textContent = `${activeIndex + 1} of ${totalCards} • ${title}`;
+    }
+
+    // Update dots
+    if (dotsContainer) {
+      const dots = dotsContainer.querySelectorAll('[data-slide-index]');
+      dots.forEach((dot, i) => {
+        if (i === activeIndex) {
+          dot.className = 'h-2.5 rounded-full transition-all duration-300 w-8 bg-safari';
+        } else {
+          dot.className = 'h-2.5 rounded-full transition-all duration-300 w-2.5 bg-slate-300 hover:bg-slate-400';
+        }
+      });
+    }
+
+    // Subtle opacity styling for floating buttons when at extremities
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    const isAtStart = track.scrollLeft <= 10;
+    const isAtEnd = track.scrollLeft >= maxScroll - 10;
+
+    const floatPrev = document.getElementById('suite-float-prev');
+    const floatNext = document.getElementById('suite-float-next');
+    if (floatPrev) floatPrev.style.opacity = isAtStart ? '0.4' : '1';
+    if (floatNext) floatNext.style.opacity = isAtEnd ? '0.4' : '1';
+  }
+
+  function slide(direction) {
+    const step = getStep();
+    const maxScroll = track.scrollWidth - track.clientWidth;
+
+    if (direction === 'next') {
+      if (track.scrollLeft >= maxScroll - 15) {
+        track.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        track.scrollBy({ left: step, behavior: 'smooth' });
+      }
+    } else {
+      if (track.scrollLeft <= 15) {
+        track.scrollTo({ left: maxScroll, behavior: 'smooth' });
+      } else {
+        track.scrollBy({ left: -step, behavior: 'smooth' });
+      }
+    }
+  }
+
+  prevBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      slide('prev');
+    });
+  });
+
+  nextBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      slide('next');
+    });
+  });
+
+  if (dotsContainer) {
+    const dots = dotsContainer.querySelectorAll('[data-slide-index]');
+    dots.forEach((dot) => {
+      dot.addEventListener('click', (e) => {
+        e.preventDefault();
+        const idx = parseInt(dot.getAttribute('data-slide-index'), 10);
+        if (cards[idx]) {
+          cards[idx].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        }
+      });
+    });
+  }
+
+  let scrollTimeout;
+  track.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(updateUI, 50);
+  }, { passive: true });
+
+  // Keyboard navigation when track has focus
+  track.setAttribute('tabindex', '0');
+  track.setAttribute('role', 'region');
+  track.setAttribute('aria-label', 'Product Suite Carousel');
+  track.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      slide('next');
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      slide('prev');
+    }
+  });
+
+  // Re-run icons in case new elements rendered
+  if (window.lucide) {
+    lucide.createIcons();
+  }
+
+  // Initial update
+  updateUI();
 }
 
