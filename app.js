@@ -145,6 +145,34 @@ const consoleViews = {
     `,
     badge: 'Super Shop & Retail POS • Multi-Counter Cash Drawers • Offline Ready'
   },
+  event: {
+    title: 'Safari Event Management • Banquets, Packages & BO Engine',
+    metric1Label: 'Confirmed Events & Banquets',
+    metric1Value: '28 Active Events',
+    metric1Sub: 'Weddings, Summits & Galas Locked',
+    metric2Label: 'Event Revenue & Deposits',
+    metric2Value: '$94,200.00',
+    metric2Sub: 'Advance Quotes & Packages Reconciled',
+    content: `
+      <div class="bg-slate-800/60 p-3.5 rounded-xl border border-slate-700/60 space-y-2">
+        <div class="flex justify-between text-xs text-slate-300">
+          <span class="font-medium">Total Event Management Suite</span>
+          <span class="text-safari-100 font-semibold font-mono">BO & Hall Sync Active</span>
+        </div>
+        <div class="space-y-1.5 text-[11px] font-mono">
+          <div class="flex items-center justify-between p-1.5 bg-slate-900/80 rounded border border-slate-700/50">
+            <span class="text-slate-200">Grand Ballroom • Gala Dinner (350 Pax)</span>
+            <span class="text-emerald-400 font-semibold">BO #204 Dispatched to Kitchen</span>
+          </div>
+          <div class="flex items-center justify-between p-1.5 bg-slate-900/80 rounded border border-slate-700/50">
+            <span class="text-slate-200">Crown Lawn • Corporate Summit</span>
+            <span class="text-safari-100 font-semibold">Quotation Signed • Advance Confirmed</span>
+          </div>
+        </div>
+      </div>
+    `,
+    badge: 'Venue Reservation • Instant Quotation • Items & Packages • Banquet Order (BO)'
+  },
   erp: {
     title: 'Safari ERP • Back-Office Financials, Supply, Inventory & Assets',
     metric1Label: 'USALI Operating Revenue',
@@ -201,9 +229,9 @@ function setupHeroConsole() {
     tabs.forEach(tab => {
       const isSelected = tab.getAttribute('data-console-tab') === viewKey;
       if (isSelected) {
-        tab.className = 'px-3 py-1 rounded-md text-xs font-bold bg-safari text-white shadow-sm transition';
+        tab.className = 'px-2.5 py-1 rounded-md text-xs font-bold bg-safari text-white shadow-sm transition';
       } else {
-        tab.className = 'px-3 py-1 rounded-md text-xs font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition';
+        tab.className = 'px-2.5 py-1 rounded-md text-xs font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition';
       }
     });
 

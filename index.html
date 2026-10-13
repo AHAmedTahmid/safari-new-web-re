@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Safari Integrated Business Solutions | POS, PMS & USALI-Certified Hospitality ERP</title>
-  <meta name="description" content="Safari delivers enterprise-grade POS, PMS, and CA-verified USALI-compliant ERP software engineered for high-performance hotels, resorts, and multi-outlet restaurants." />
+  <title>Safari Integrated Business Solutions | POS, PMS, Event Management & USALI ERP</title>
+  <meta name="description" content="Safari delivers enterprise-grade POS for retail & super shops, complete hotel PMS, total Event Management Solutions (reservations, quotes, packages, BO), and CA-verified USALI ERP." />
 
   <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -171,7 +171,7 @@
         </h1>
 
         <p class="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-          Safari unifies high-speed <strong>Point of Sale (POS)</strong> for super shops and multi-purpose retail, a complete <strong>Property Management System (PMS)</strong> for hotels and resorts, and <strong>Back-Office ERP with USALI Financials, Supply Chain &amp; Fixed Assets</strong> into one seamless database. Stop wrestling with disjointed systems and manual night audits.
+          Safari unifies high-speed <strong>Point of Sale (POS)</strong> for super shops and multi-purpose retail, a complete <strong>Property Management System (PMS)</strong> for hotels and resorts, <strong>Safari Event Management Solutions</strong> for banquets, reservations &amp; Banquet Orders (BO), and <strong>Back-Office ERP with USALI Financials, Supply Chain &amp; Fixed Assets</strong> into one seamless database. Stop wrestling with disjointed systems and manual night audits.
         </p>
 
         <!-- CTA Action Buttons -->
@@ -221,9 +221,10 @@
             </div>
 
             <div class="flex items-center gap-1 bg-slate-950 p-1 rounded-lg border border-slate-800">
-              <button type="button" data-console-tab="erp" class="px-3 py-1 rounded-md text-xs font-bold bg-safari text-white shadow-sm transition">ERP</button>
-              <button type="button" data-console-tab="pms" class="px-3 py-1 rounded-md text-xs font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition">PMS</button>
-              <button type="button" data-console-tab="pos" class="px-3 py-1 rounded-md text-xs font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition">POS</button>
+              <button type="button" data-console-tab="erp" class="px-2.5 py-1 rounded-md text-xs font-bold bg-safari text-white shadow-sm transition">ERP</button>
+              <button type="button" data-console-tab="pms" class="px-2.5 py-1 rounded-md text-xs font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition">PMS</button>
+              <button type="button" data-console-tab="event" class="px-2.5 py-1 rounded-md text-xs font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition">EVENT</button>
+              <button type="button" data-console-tab="pos" class="px-2.5 py-1 rounded-md text-xs font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition">POS</button>
             </div>
           </div>
 
@@ -362,135 +363,175 @@
       <p class="text-slate-600 text-base">Deploy standalone high-performance modules or empower your entire operation with our complete integrated solutions.</p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
       <!-- POS MODULE -->
-      <div class="bg-white rounded-2xl p-8 border border-slate-200 hover:border-safari hover:shadow-xl transition flex flex-col justify-between group">
+      <div class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 hover:border-safari hover:shadow-xl transition flex flex-col justify-between group">
         <div class="space-y-4">
-          <div class="w-14 h-14 rounded-2xl bg-safari-100 text-safari flex items-center justify-center group-hover:bg-safari group-hover:text-white transition shadow-sm">
+          <div class="w-13 h-13 rounded-2xl bg-safari-100 text-safari flex items-center justify-center group-hover:bg-safari group-hover:text-white transition shadow-sm p-3">
             <i data-lucide="shopping-cart" class="w-7 h-7"></i>
           </div>
           <div>
-            <span class="text-xs font-bold text-safari uppercase tracking-wider">Super Shop & Multi-Purpose Retail</span>
-            <h3 class="text-2xl font-bold text-slate-900 mt-0.5">Safari POS</h3>
+            <span class="text-xs font-bold text-safari uppercase tracking-wider">Super Shop &amp; Retail POS</span>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">Safari POS</h3>
           </div>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            Engineered for <strong>any kind of super shop, grocery, department store, and multi-purpose retail or dining outlet</strong>. Ultra-fast barcode scanning, weighing scale sync, multi-counter cash drawers, and 100% offline resilience.
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Engineered for <strong>super shops, grocery, department stores, and multi-purpose retail or dining outlets</strong>. Ultra-fast barcode scanning, weighing scale sync, multi-counter cash drawers, and 100% offline resilience.
           </p>
           <div class="pt-2 border-t border-slate-100 space-y-2.5 text-xs text-slate-700">
-            <div class="flex items-start gap-2.5">
+            <div class="flex items-start gap-2">
               <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
-              <span><strong>Super Shop & Retail Checkout:</strong> High-speed barcode scanning, weighing scale integration, quick item search, and multi-lane checkout terminals.</span>
+              <span><strong>Super Shop &amp; Retail Checkout:</strong> High-speed barcode scanning, weighing scale integration, quick item search, and multi-lane terminals.</span>
             </div>
-            <div class="flex items-start gap-2.5">
+            <div class="flex items-start gap-2">
               <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
-              <span><strong>Multi-Counter Cashier Control:</strong> Multi-terminal float management, cashier shift closing reconciliation, split tender, and digital payment methods.</span>
+              <span><strong>Multi-Counter Cash Drawers:</strong> Shift closing reconciliation, float management, split tender, and digital payments.</span>
             </div>
-            <div class="flex items-start gap-2.5">
+            <div class="flex items-start gap-2">
               <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
-              <span><strong>Live Stock & Barcode Printing:</strong> Real-time inventory deduction upon checkout, batch/expiry tracking, and custom barcode sticker printing.</span>
+              <span><strong>Live Stock &amp; Barcode Printing:</strong> Real-time checkout deduction, batch/expiry tracking, and custom barcode sticker printing.</span>
             </div>
-            <div class="flex items-start gap-2.5">
+            <div class="flex items-start gap-2">
               <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
-              <span><strong>100% Offline Resilience:</strong> Keeps high-speed checkouts moving during network drops; auto-syncs across counters and central inventory once reconnected.</span>
+              <span><strong>100% Offline Resilience:</strong> Zero checkout freezes during internet drops; auto-syncs across counters and central inventory once reconnected.</span>
             </div>
           </div>
         </div>
 
-        <div class="pt-8">
-          <button type="button" data-open-demo-modal class="w-full text-center py-3 px-4 rounded-xl bg-slate-100 hover:bg-safari hover:text-white text-slate-800 font-semibold text-xs transition shadow-sm">
-            Schedule POS Demonstration
+        <div class="pt-6">
+          <button type="button" data-open-demo-modal class="w-full text-center py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-safari hover:text-white text-slate-800 font-semibold text-xs transition shadow-sm">
+            Schedule POS Demo
           </button>
         </div>
       </div>
 
       <!-- PMS MODULE (FEATURED) -->
-      <div class="bg-white rounded-2xl p-8 border-2 border-safari shadow-xl relative flex flex-col justify-between group">
-        <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-safari text-white rounded-full text-[11px] font-extrabold uppercase tracking-wider shadow">
-          Complete Hotel & Resort Solution
+      <div class="bg-white rounded-2xl p-6 sm:p-7 border-2 border-safari shadow-xl relative flex flex-col justify-between group">
+        <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-1 bg-safari text-white rounded-full text-[10px] font-extrabold uppercase tracking-wider shadow whitespace-nowrap">
+          Complete Hotel &amp; Resort OS
         </span>
         <div class="space-y-4 pt-1">
-          <div class="w-14 h-14 rounded-2xl bg-safari text-white flex items-center justify-center shadow-md">
+          <div class="w-13 h-13 rounded-2xl bg-safari text-white flex items-center justify-center shadow-md p-3">
             <i data-lucide="hotel" class="w-7 h-7"></i>
           </div>
           <div>
-            <span class="text-xs font-bold text-safari uppercase tracking-wider">All-In-One Hotel & Resort OS</span>
-            <h3 class="text-2xl font-bold text-slate-900 mt-0.5">Safari PMS</h3>
+            <span class="text-xs font-bold text-safari uppercase tracking-wider">Hotel &amp; Resort Solution</span>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">Safari PMS</h3>
           </div>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            The complete solution for <strong>Hotels & Resorts</strong>. Unifies front office, restaurant dining, housekeeping, guest services, event management, and ticketing all in one seamless system.
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            The complete operating system for <strong>Hotels &amp; Resorts</strong>. Unifies front office, restaurant dining, housekeeping, services, event management, and ticketing in one system.
           </p>
           <div class="pt-2 border-t border-slate-100 space-y-2.5 text-xs text-slate-700">
-            <div class="flex items-start gap-2.5">
+            <div class="flex items-start gap-2">
               <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
-              <span><strong>Front Office & Room Matrix:</strong> Interactive drag-and-drop tape chart, express check-in/out, digital keycards, and 2-way OTA channel sync (Booking.com, Expedia).</span>
+              <span><strong>Front Office &amp; Room Matrix:</strong> Interactive drag-and-drop tape chart, express check-in/out, digital keycards, and 2-way OTA channel sync.</span>
             </div>
-            <div class="flex items-start gap-2.5">
+            <div class="flex items-start gap-2">
               <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
-              <span><strong>Restaurant & Room Service:</strong> Multi-outlet table management, sub-second KOT kitchen dispatch, and direct billing to guest room folios.</span>
+              <span><strong>Restaurant &amp; Dining Billing:</strong> Multi-outlet table management, sub-second KOT kitchen dispatch, and direct room folio posting.</span>
             </div>
-            <div class="flex items-start gap-2.5">
+            <div class="flex items-start gap-2">
               <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
-              <span><strong>Housekeeping & Guest Services:</strong> Real-time mobile room status (Clean/Dirty/Inspected), maintenance work orders, and concierge service requests.</span>
+              <span><strong>Housekeeping &amp; Guest Services:</strong> Live mobile room status (Clean/Dirty/Inspected), maintenance work orders, and concierge requests.</span>
             </div>
-            <div class="flex items-start gap-2.5">
+            <div class="flex items-start gap-2">
               <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
-              <span><strong>Event Management & Banquets:</strong> Conference halls, wedding venues, banquet scheduling, customized packages, and advance deposit tracking.</span>
-            </div>
-            <div class="flex items-start gap-2.5">
-              <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
-              <span><strong>Ticketing & Resort Amenities:</strong> Integrated ticketing for water parks, resort pools, spa bookings, facility passes, and guest access control.</span>
+              <span><strong>Ticketing &amp; Resort Amenities:</strong> Integrated ticketing for water parks, resort pools, spa bookings, and activity passes.</span>
             </div>
           </div>
         </div>
 
-        <div class="pt-8">
-          <button type="button" data-open-demo-modal class="w-full text-center py-3 px-4 rounded-xl bg-safari text-white hover:bg-safari-dark font-bold text-xs transition shadow-md">
-            Schedule PMS Demonstration
+        <div class="pt-6">
+          <button type="button" data-open-demo-modal class="w-full text-center py-2.5 px-3 rounded-xl bg-safari text-white hover:bg-safari-dark font-bold text-xs transition shadow-md">
+            Schedule PMS Demo
+          </button>
+        </div>
+      </div>
+
+      <!-- EVENT MANAGEMENT MODULE (NEW PRODUCT) -->
+      <div class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 hover:border-safari hover:shadow-xl transition flex flex-col justify-between group">
+        <div class="space-y-4">
+          <div class="w-13 h-13 rounded-2xl bg-safari-100 text-safari flex items-center justify-center group-hover:bg-safari group-hover:text-white transition shadow-sm p-3">
+            <i data-lucide="calendar-check" class="w-7 h-7"></i>
+          </div>
+          <div>
+            <span class="text-xs font-bold text-safari uppercase tracking-wider">Banquets &amp; Conferences</span>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">Safari Event Management</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            The total end-to-end package for <strong>banquets, venues, and event planners</strong>. Full-cycle control covering venue reservations, instant quotations, items, custom packages, and Banquet Orders (BO).
+          </p>
+          <div class="pt-2 border-t border-slate-100 space-y-2.5 text-xs text-slate-700">
+            <div class="flex items-start gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
+              <span><strong>Venue &amp; Hall Reservation:</strong> Visual calendar booking for grand ballrooms, conference halls, and lawns without double-booking.</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
+              <span><strong>Instant Quotation Builder:</strong> Dynamic price calculations, branded PDF quotes, custom discounts, and fast approval workflows.</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
+              <span><strong>Items &amp; Resource Allocation:</strong> AV equipment rentals, staging, decor inventory, seating layouts, cutlery, and staffing setup.</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
+              <span><strong>Custom Packages &amp; Catering:</strong> Per-head packages (Weddings, Corporate Summits, Galas) with customized F&amp;B menus.</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
+              <span><strong>Banquet Order (BO / BEO):</strong> Auto-generated function sheets routed to kitchen, banquet captains, and billing desks.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-6">
+          <button type="button" data-open-demo-modal class="w-full text-center py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-safari hover:text-white text-slate-800 font-semibold text-xs transition shadow-sm">
+            Schedule Event Demo
           </button>
         </div>
       </div>
 
       <!-- ERP MODULE -->
-      <div class="bg-white rounded-2xl p-8 border border-slate-200 hover:border-safari hover:shadow-xl transition flex flex-col justify-between group">
+      <div class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 hover:border-safari hover:shadow-xl transition flex flex-col justify-between group">
         <div class="space-y-4">
-          <div class="w-14 h-14 rounded-2xl bg-safari-100 text-safari flex items-center justify-center group-hover:bg-safari group-hover:text-white transition shadow-sm">
+          <div class="w-13 h-13 rounded-2xl bg-safari-100 text-safari flex items-center justify-center group-hover:bg-safari group-hover:text-white transition shadow-sm p-3">
             <i data-lucide="boxes" class="w-7 h-7"></i>
           </div>
           <div>
-            <span class="text-xs font-bold text-safari uppercase tracking-wider">Back-Office Financials, Supply & Assets</span>
-            <h3 class="text-2xl font-bold text-slate-900 mt-0.5">Safari ERP</h3>
+            <span class="text-xs font-bold text-safari uppercase tracking-wider">Back-Office &amp; Assets</span>
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mt-0.5">Safari ERP</h3>
           </div>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            A complete back-office enterprise solution: <strong>USALI financials, supply chain & procurement, centralized inventory, fixed assets management</strong>, and full access controls.
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            A complete back-office enterprise solution: <strong>USALI financials, supply chain &amp; procurement, centralized inventory, fixed assets</strong>, and full access controls.
           </p>
           <div class="pt-2 border-t border-slate-100 space-y-2.5 text-xs text-slate-700">
-            <div class="flex items-start gap-2.5">
+            <div class="flex items-start gap-2">
               <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
-              <span><strong>Back-Office Financials (USALI Certified):</strong> Pre-mapped schedules, automated CA-verified general ledgers, trial balances, and GOP statements.</span>
+              <span><strong>Back-Office Financials (USALI):</strong> Pre-mapped schedules, automated CA-verified ledgers, trial balances, and GOP statements.</span>
             </div>
-            <div class="flex items-start gap-2.5">
+            <div class="flex items-start gap-2">
               <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
-              <span><strong>Supply Chain & Procurement:</strong> Multi-tier purchase order approvals, vendor comparisons, store requisitions, and automated supplier workflows.</span>
+              <span><strong>Supply Chain &amp; Procurement:</strong> Multi-tier PO approvals, vendor comparisons, store requisitions, and automated supplier workflows.</span>
             </div>
-            <div class="flex items-start gap-2.5">
+            <div class="flex items-start gap-2">
               <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
-              <span><strong>Central Inventory & Recipe Costing:</strong> Multi-warehouse batch tracking, real-time stock valuation, recipe BOM depletion, and wastage controls.</span>
+              <span><strong>Inventory &amp; Recipe Costing:</strong> Multi-warehouse batch tracking, real-time stock valuation, and recipe BOM depletion.</span>
             </div>
-            <div class="flex items-start gap-2.5">
+            <div class="flex items-start gap-2">
               <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
-              <span><strong>Fixed Assets & Depreciation:</strong> Asset register, barcode tagging, automated depreciation calculation, and equipment lifecycle tracking.</span>
+              <span><strong>Fixed Assets &amp; Depreciation:</strong> Asset register, barcode tagging, automated depreciation calculation, and equipment lifecycle tracking.</span>
             </div>
-            <div class="flex items-start gap-2.5">
+            <div class="flex items-start gap-2">
               <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
-              <span><strong>Full Access Security & Multi-Branch Control:</strong> Granular role permissions, biometric staff payroll, immutable audit trails, and multi-property consolidated reporting.</span>
+              <span><strong>Full Access Security:</strong> Role permissions, biometric staff payroll, immutable audit trails, and multi-branch reports.</span>
             </div>
           </div>
         </div>
 
-        <div class="pt-8">
-          <button type="button" data-open-demo-modal class="w-full text-center py-3 px-4 rounded-xl bg-slate-100 hover:bg-safari hover:text-white text-slate-800 font-semibold text-xs transition shadow-sm">
-            Schedule ERP Demonstration
+        <div class="pt-6">
+          <button type="button" data-open-demo-modal class="w-full text-center py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-safari hover:text-white text-slate-800 font-semibold text-xs transition shadow-sm">
+            Schedule ERP Demo
           </button>
         </div>
       </div>
@@ -1099,8 +1140,9 @@
             <div>
               <label for="lead-solution" class="block text-xs font-bold uppercase text-slate-700 mb-1">Primary Module Needed</label>
               <select id="lead-solution" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-safari focus:ring-1 focus:ring-safari">
-                <option>Integrated All-in-One Suite (POS + PMS + ERP)</option>
+                <option>Integrated All-in-One Suite (POS + PMS + Event + ERP)</option>
                 <option>Safari PMS (Hotel &amp; Resort Complete Solution)</option>
+                <option>Safari Event Management Solutions (Banquets, Packages &amp; BO)</option>
                 <option>Safari POS (Super Shop &amp; Multi-Purpose Retail)</option>
                 <option>Safari ERP (Back-Office Financials, Supply &amp; Assets)</option>
               </select>
@@ -1163,9 +1205,10 @@
         <ul class="space-y-2.5 text-xs">
           <li><a href="#suite" class="hover:text-white transition">Point of Sale (POS) Outlet Billing</a></li>
           <li><a href="#suite" class="hover:text-white transition">Property Management (PMS) Front Desk</a></li>
-          <li><a href="#suite" class="hover:text-white transition">USALI Financial ERP & General Ledger</a></li>
+          <li><a href="#suite" class="hover:text-white transition">Safari Event Management (Banquets &amp; BO)</a></li>
+          <li><a href="#suite" class="hover:text-white transition">USALI Financial ERP &amp; General Ledger</a></li>
           <li><a href="#suite" class="hover:text-white transition">Kitchen Display Systems (KDS)</a></li>
-          <li><a href="#suite" class="hover:text-white transition">Biometric Roster & Payroll Module</a></li>
+          <li><a href="#suite" class="hover:text-white transition">Biometric Roster &amp; Payroll Module</a></li>
         </ul>
       </div>
 
@@ -1242,8 +1285,9 @@
         <div>
           <label for="modal-solution" class="block text-xs font-bold uppercase text-slate-700 mb-1">Desired System</label>
           <select id="modal-solution" class="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-safari">
-            <option>Complete Unified Suite (POS + PMS + USALI ERP)</option>
+            <option>Complete Unified Suite (POS + PMS + Event + USALI ERP)</option>
             <option>Safari PMS (Hotel &amp; Resort Complete Solution)</option>
+            <option>Safari Event Management Solutions (Banquets, Packages &amp; BO)</option>
             <option>Safari POS (Super Shop &amp; Multi-Purpose Retail)</option>
             <option>Safari ERP (Back-Office Financials, Supply &amp; Assets)</option>
           </select>
