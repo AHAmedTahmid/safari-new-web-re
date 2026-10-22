@@ -38,6 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Unified 3-Layer Contact Widget (WhatsApp, Message, Call)
   setupUnifiedContactWidget();
+
+  // Movable Floating Request Demo Widget
+  setupDraggableDemoWidget();
 });
 
 /* -------------------------------------------------------------
@@ -1159,4 +1162,147 @@ function setupSuiteSlider() {
   // Initial update
   updateUI();
 }
+
+/* -------------------------------------------------------------
+ * 11. Movable / Draggable Floating Demo Widget
+ * Allows users to drag and place the Request Demo button anywhere.
+ * Clamps within screen bounds and persists location in localStorage.
+ * ----------------------------------------------------------- */
+function setupDraggableDemoWidget() {
+  const widget = document.getElementById('floating-demo-widget');
+  if (!widget) return;
+
+  const btn = widget.querySelector('button');
+  let isDragging = false;
+  let hasMoved = false;
+  let startX = 0;
+  let startY = 0;
+  let initialLeft = 0;
+  let initialTop = 0;
+
+  const savedPosKey = 'safari_demo_btn_pos';
+
+  function applyPosition(left, top) {
+    const pad = 12;
+    const maxLeft = Math.max(pad, window.innerWidth - widget.offsetWidth - pad);
+    const maxTop = Math.max(pad, window.innerHeight - widget.offsetHeight - pad);
+    const clampedLeft = Math.min(Math.max(pad, left), maxLeft);
+    const clampedTop = Math.min(Math.max(pad, top), maxTop);
+
+    widget.style.position = 'fixed';
+    widget.style.left = clampedLeft + 'px';
+    widget.style.top = clampedTop + 'px';
+    widget.style.bottom = 'auto';
+    widget.style.right = 'auto';
+  }
+
+  function savePosition(left, top) {
+    try {
+      localStorage.setItem(savedPosKey, JSON.stringify({ left, top }));
+    } catch (err) {
+      // ignore
+    }
+  }
+
+  // Restore saved position on load
+  try {
+    const saved = JSON.parse(localStorage.getItem(savedPosKey));
+    if (saved && typeof saved.left === 'number' && typeof saved.top === 'number') {
+      applyPosition(saved.left, saved.top);
+    }
+  } catch (err) {
+    // ignore
+  }
+
+  // Re-clamp on window resize so it never gets lost
+  window.addEventListener('resize', () => {
+    const rect = widget.getBoundingClientRect();
+    applyPosition(rect.left, rect.top);
+  });
+
+  // Pointer down (Mouse or Touch)
+  function onPointerDown(e) {
+    if (e.type === 'mousedown' && e.button !== 0) return;
+
+    isDragging = true;
+    hasMoved = false;
+
+    const clientX = e.type.startsWith('touch') ? e.touches[0].clientX : e.clientX;
+    const clientY = e.type.startsWith('touch') ? e.touches[0].clientY : e.clientY;
+
+    startX = clientX;
+    startY = clientY;
+
+    const rect = widget.getBoundingClientRect();
+    initialLeft = rect.left;
+    initialTop = rect.top;
+
+    widget.style.transition = 'none';
+    widget.classList.add('is-dragging');
+
+    if (e.type === 'mousedown') {
+      window.addEventListener('mousemove', onPointerMove, { passive: false });
+      window.addEventListener('mouseup', onPointerUp);
+    } else {
+      window.addEventListener('touchmove', onPointerMove, { passive: false });
+      window.addEventListener('touchend', onPointerUp);
+      window.addEventListener('touchcancel', onPointerUp);
+    }
+  }
+
+  function onPointerMove(e) {
+    if (!isDragging) return;
+
+    const clientX = e.type.startsWith('touch') ? e.touches[0].clientX : e.clientX;
+    const clientY = e.type.startsWith('touch') ? e.touches[0].clientY : e.clientY;
+
+    const dx = clientX - startX;
+    const dy = clientY - startY;
+
+    if (!hasMoved && Math.hypot(dx, dy) > 4) {
+      hasMoved = true;
+    }
+
+    if (hasMoved) {
+      if (e.cancelable) e.preventDefault();
+      const newLeft = initialLeft + dx;
+      const newTop = initialTop + dy;
+      applyPosition(newLeft, newTop);
+    }
+  }
+
+  function onPointerUp(e) {
+    if (!isDragging) return;
+    isDragging = false;
+
+    widget.style.transition = '';
+    widget.classList.remove('is-dragging');
+
+    window.removeEventListener('mousemove', onPointerMove);
+    window.removeEventListener('mouseup', onPointerUp);
+    window.removeEventListener('touchmove', onPointerMove);
+    window.removeEventListener('touchend', onPointerUp);
+    window.removeEventListener('touchcancel', onPointerUp);
+
+    if (hasMoved) {
+      const rect = widget.getBoundingClientRect();
+      savePosition(rect.left, rect.top);
+    }
+  }
+
+  widget.addEventListener('mousedown', onPointerDown);
+  widget.addEventListener('touchstart', onPointerDown, { passive: true });
+
+  // Suppress modal open if it was a drag gesture
+  if (btn) {
+    btn.addEventListener('click', (e) => {
+      if (hasMoved) {
+        e.preventDefault();
+        e.stopPropagation();
+        hasMoved = false;
+      }
+    }, true);
+  }
+}
+
 
