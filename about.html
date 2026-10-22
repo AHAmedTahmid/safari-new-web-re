@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Safari Integrated Business Solutions</title>
+  <meta name="description" content="Discover the story, mission, and leadership behind Safari Integrated Business Solutions. Engineered by hospitality specialists, Chartered Accountants, and distributed software architects." />
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            safari: {
+              DEFAULT: '#6A760C',
+              dark: '#535c09',
+              light: '#f2f4e8',
+              50: '#f9faf5',
+              100: '#f2f4e8',
+              200: '#e1e7cb',
+              300: '#cbd7a4',
+              400: '#afc171',
+              500: '#8c9b10',
+              600: '#6A760C',
+              700: '#535c09',
+              800: '#3c4306',
+              900: '#262a04',
+              950: '#141701',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Enhanced CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-safari selection:text-white">
+
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group" title="Return to Safari Solutions Home">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-safari to-safari-dark flex items-center justify-center text-white font-extrabold text-xl shadow-md group-hover:shadow-safari/30 transition">
+          S
+        </div>
+        <div class="leading-tight">
+          <span class="text-xl font-extrabold tracking-tight text-slate-900 block group-hover:text-safari transition">SAFARI</span>
+          <span class="text-[10px] tracking-wider uppercase text-safari font-bold">Integrated Solutions</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-8 font-medium text-slate-600 text-sm" aria-label="Main Navigation">
+        <a href="index.html" class="hover:text-safari transition">Home</a>
+        <a href="index.html#suite" class="hover:text-safari transition">Product Suite</a>
+        <a href="index.html#usali" class="hover:text-safari transition flex items-center gap-1">
+          USALI Standard
+          <span class="text-[10px] bg-safari-100 text-safari-800 px-1.5 py-0.5 rounded font-bold">CA Verified</span>
+        </a>
+        <a href="index.html#roi" class="hover:text-safari transition">ROI Calculator</a>
+        <a href="index.html#implementation" class="hover:text-safari transition">8-Day Go-Live</a>
+        <a href="index.html#faq" class="hover:text-safari transition">FAQ</a>
+        <a href="about.html" class="text-safari font-bold border-b-2 border-safari pb-0.5 transition">About Us</a>
+      </nav>
+
+      <!-- Desktop Actions -->
+      <div class="hidden md:flex items-center gap-4">
+        <button type="button" data-open-coa-modal class="text-xs font-bold text-slate-600 hover:text-safari px-3 py-2 rounded-lg hover:bg-slate-100 transition flex items-center gap-1.5">
+          <i data-lucide="file-spreadsheet" class="w-4 h-4 text-safari"></i> Sample COA
+        </button>
+        <button type="button" data-open-demo-modal class="px-5 py-2.5 rounded-xl bg-safari hover:bg-safari-dark text-white font-semibold text-sm transition shadow-sm hover:shadow-lg hover:shadow-safari/20 flex items-center gap-2">
+          <span>Request Demo</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" type="button" class="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition" aria-label="Open mobile menu" aria-expanded="false">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- MOBILE SLIDE-OUT MENU DRAWER -->
+  <div id="mobile-menu-drawer" class="hidden fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm" aria-hidden="true"></div>
+    <div class="fixed inset-y-0 right-0 w-full max-w-xs bg-white p-6 shadow-2xl flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-slate-200">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-lg bg-safari flex items-center justify-center text-white font-bold text-base">S</div>
+            <span class="font-extrabold text-slate-900">SAFARI</span>
+          </div>
+          <button id="mobile-menu-close" type="button" class="p-2 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition" aria-label="Close menu">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <nav class="flex flex-col gap-4 pt-6 font-semibold text-slate-700 text-sm">
+          <a href="index.html" class="hover:text-safari py-2 transition flex items-center justify-between">
+            <span>Home</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+          </a>
+          <a href="index.html#suite" class="hover:text-safari py-2 transition flex items-center justify-between">
+            <span>Product Suite</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+          </a>
+          <a href="index.html#usali" class="hover:text-safari py-2 transition flex items-center justify-between">
+            <span>USALI Financial Standards</span>
+            <span class="text-[10px] bg-safari-100 text-safari font-bold px-2 py-0.5 rounded">CA Certified</span>
+          </a>
+          <a href="index.html#roi" class="hover:text-safari py-2 transition flex items-center justify-between">
+            <span>ROI & Savings Calculator</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+          </a>
+          <a href="index.html#implementation" class="hover:text-safari py-2 transition flex items-center justify-between">
+            <span>8-Day Implementation SLA</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+          </a>
+          <a href="index.html#faq" class="hover:text-safari py-2 transition flex items-center justify-between">
+            <span>Frequently Asked Questions</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+          </a>
+          <a href="about.html" class="text-safari font-bold py-2 transition flex items-center justify-between border-t border-slate-100 pt-3">
+            <span>About Us (Who We Are)</span>
+            <i data-lucide="check" class="w-4 h-4 text-safari"></i>
+          </a>
+        </nav>
+      </div>
+
+      <div class="pt-6 border-t border-slate-200 space-y-3">
+        <button type="button" data-open-coa-modal class="w-full py-2.5 rounded-lg border border-slate-300 text-slate-700 font-semibold text-xs text-center block hover:bg-slate-50 transition">
+          View USALI Chart of Accounts
+        </button>
+        <button type="button" data-open-demo-modal class="w-full py-3 rounded-xl bg-safari text-white font-bold text-sm text-center block shadow-md hover:bg-safari-dark transition">
+          Schedule Live Demo
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BREADCRUMB & STATUS BAR -->
+  <section class="bg-slate-900 text-slate-300 py-3 px-6 border-b border-slate-800 text-xs">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="text-slate-400 hover:text-white transition">Home</a>
+        <span class="text-slate-600">/</span>
+        <span class="text-safari-100 font-semibold">About Safari Solutions</span>
+      </div>
+      <div class="flex items-center gap-4 text-[11px]">
+        <span class="text-slate-400">Direct Inquiries &amp; WhatsApp:</span>
+        <a href="https://wa.me/8801674914391" target="_blank" rel="noopener" class="text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1 font-mono">
+          <i data-lucide="phone" class="w-3.5 h-3.5"></i> 01674914391
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO SECTION: ABOUT US -->
+  <section class="relative pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center space-y-6">
+        
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-safari-50 text-safari-800 text-xs font-bold tracking-wide uppercase border border-safari/30">
+          <span class="w-2 h-2 rounded-full bg-safari"></span>
+          Company Mission &amp; Engineering Culture
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
+          Engineering the <span class="text-safari underline decoration-safari/30 decoration-wavy decoration-2">Future</span> of Unified Hospitality &amp; Retail.
+        </h1>
+
+        <p class="text-lg text-slate-600 leading-relaxed">
+          Safari was built to eliminate the costly fragmentation plaguing modern hospitality, super shops, and convention enterprises. We engineered a single synchronized platform where high-speed <strong>POS</strong>, complete hotel <strong>PMS</strong>, total <strong>Event Management Solutions</strong>, and CA-verified <strong>USALI Financial ERP</strong> operate as one cohesive engine.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center pt-2">
+          <button type="button" data-open-demo-modal class="px-8 py-3.5 rounded-xl bg-safari hover:bg-safari-dark text-white font-bold text-sm shadow-lg shadow-safari/25 transition flex items-center justify-center gap-2">
+            <span>Schedule an Executive Consultation</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+          <a href="index.html#suite" class="px-8 py-3.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-sm border border-slate-200 transition">
+            Explore System Architecture
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Key Company Metrics Banner -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 p-6 sm:p-8 rounded-2xl bg-slate-900 text-white shadow-xl border border-slate-800">
+        <div class="text-center p-3 border-r border-slate-800 last:border-none">
+          <div class="text-3xl sm:text-4xl font-extrabold text-safari-100 font-mono">150+</div>
+          <div class="text-xs text-slate-400 mt-1 font-medium">Enterprise Properties Powered</div>
+        </div>
+        <div class="text-center p-3 border-r border-slate-800 last:border-none">
+          <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono">99.99%</div>
+          <div class="text-xs text-slate-400 mt-1 font-medium">Uptime &amp; 100% Offline Mode</div>
+        </div>
+        <div class="text-center p-3 border-r border-slate-800 last:border-none">
+          <div class="text-3xl sm:text-4xl font-extrabold text-emerald-400 font-mono">11th &amp; 12th</div>
+          <div class="text-xs text-slate-400 mt-1 font-medium">USALI Editions CA-Certified</div>
+        </div>
+        <div class="text-center p-3">
+          <div class="text-3xl sm:text-4xl font-extrabold text-safari-100 font-mono">8 Days</div>
+          <div class="text-xs text-slate-400 mt-1 font-medium">Guaranteed Onboarding SLA</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- THE GENESIS: WHY WE CREATED SAFARI -->
+  <section class="py-24 max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+      <div class="lg:col-span-6 space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-safari-100 text-safari-800 text-xs font-bold uppercase tracking-widest border border-safari/20">
+          The Genesis Story
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+          Born Out of Frustration with Disconnected Legacy Software
+        </h2>
+        <p class="text-slate-600 text-base leading-relaxed">
+          For decades, hospitality operators, super shops, and event venues were forced to stitch together 4 to 6 disparate software packages: one vendor for point-of-sale checkout, another for hotel room inventory, spreadsheets for banquet catering, and a generic accounting tool that had never heard of USALI.
+        </p>
+        <p class="text-slate-600 text-base leading-relaxed">
+          The result? Constant checkout freezes during internet drops, double-booked banquet halls, staff wasting 4+ hours every night on manual reconciliation, and financial reports that arrived weeks after the month closed.
+        </p>
+        <p class="text-slate-900 font-semibold text-base leading-relaxed bg-safari-50 p-4 rounded-xl border border-safari/30">
+          We built Safari to prove that enterprise hospitality software can be fast, offline-resilient, CA-verified, and beautiful to use.
+        </p>
+      </div>
+
+      <!-- Comparative Reality Check: Legacy vs Safari -->
+      <div class="lg:col-span-6 space-y-4">
+        
+        <!-- Legacy Way -->
+        <div class="p-6 rounded-2xl bg-white border border-rose-200/80 shadow-sm relative overflow-hidden">
+          <div class="absolute top-0 right-0 px-3 py-1 bg-rose-100 text-rose-800 text-[10px] font-bold uppercase rounded-bl-xl tracking-wider">
+            The Fragmented Legacy Approach
+          </div>
+          <h3 class="text-base font-bold text-slate-900 mb-3 flex items-center gap-2">
+            <i data-lucide="x-circle" class="w-5 h-5 text-rose-500"></i> The Pain Points We Solved
+          </h3>
+          <ul class="space-y-2 text-xs text-slate-600">
+            <li class="flex items-start gap-2">
+              <i data-lucide="alert-triangle" class="w-4 h-4 text-rose-400 shrink-0 mt-0.5"></i>
+              <span>Outlets freeze when internet drops, creating cashier panics and angry customer queues.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="alert-triangle" class="w-4 h-4 text-rose-400 shrink-0 mt-0.5"></i>
+              <span>Event &amp; banquet reservations managed on spreadsheets, causing double bookings and missed Banquet Orders (BO).</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="alert-triangle" class="w-4 h-4 text-rose-400 shrink-0 mt-0.5"></i>
+              <span>Night audits require hours of manual data export to reconcile restaurant receipts against room folios.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="alert-triangle" class="w-4 h-4 text-rose-400 shrink-0 mt-0.5"></i>
+              <span>Financial statements fail USALI standard audits, creating tax and investor scrutiny.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- The Safari Way -->
+        <div class="p-6 rounded-2xl bg-safari-50/70 border-2 border-safari shadow-md relative overflow-hidden">
+          <div class="absolute top-0 right-0 px-3 py-1 bg-safari text-white text-[10px] font-bold uppercase rounded-bl-xl tracking-wider">
+            The Safari Unified Standard
+          </div>
+          <h3 class="text-base font-bold text-slate-900 mb-3 flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-5 h-5 text-safari"></i> The Safari Engineering Breakthrough
+          </h3>
+          <ul class="space-y-2 text-xs text-slate-700">
+            <li class="flex items-start gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
+              <span><strong>100% Offline Continuity:</strong> Barcode scanning, weighing scales, and cash drawers never stop.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
+              <span><strong>Complete Event Solution:</strong> Reservations, custom quotations, items, packages, and BO automated to kitchen and bills.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
+              <span><strong>Real-Time Cross-Sync:</strong> Dining, retail, and event charges post immediately to guest room folios.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-safari shrink-0 mt-0.5"></i>
+              <span><strong>CA-Certified USALI Ledger:</strong> Departmental P&amp;L schedules (Rooms, F&amp;B, Admin) update automatically with zero manual entry.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- THE 4 CORNERSTONES OF SAFARI -->
+  <section class="py-20 bg-slate-100/70 border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+        <span class="text-xs font-bold text-safari uppercase tracking-widest">Our Integrated Product Ecosystem</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Four Pillars. One Centralized Database.</h2>
+        <p class="text-slate-600 text-sm">Every module works independently as a standalone powerhouse, or connects seamlessly into a unified hospitality enterprise operating system.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Pillar 1: Safari POS -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-safari transition shadow-sm hover:shadow-md flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-safari-100 text-safari flex items-center justify-center p-3">
+              <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <span class="text-[11px] font-bold text-safari uppercase tracking-wider">Super Shop &amp; Retail</span>
+              <h3 class="text-xl font-bold text-slate-900 mt-0.5">1. Safari POS</h3>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Ultra-fast barcode scanning, integrated digital weighing scales, multi-counter cash drawers, and 100% offline checkout resilience for high-volume retail, super shops, and F&amp;B outlets.
+            </p>
+            <div class="space-y-1.5 text-[11px] text-slate-700 pt-2 border-t border-slate-100">
+              <div class="flex items-center gap-1.5 font-medium"><i data-lucide="check" class="w-3.5 h-3.5 text-safari"></i> Barcode &amp; Scales Sync</div>
+              <div class="flex items-center gap-1.5 font-medium"><i data-lucide="check" class="w-3.5 h-3.5 text-safari"></i> Multi-Counter Drawers</div>
+              <div class="flex items-center gap-1.5 font-medium"><i data-lucide="check" class="w-3.5 h-3.5 text-safari"></i> Zero-Freeze Offline Mode</div>
+            </div>
+          </div>
+          <div class="pt-6">
+            <a href="index.html#suite" class="text-xs font-bold text-safari hover:underline flex items-center gap-1">
+              Explore POS Features <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Pillar 2: Safari PMS -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-safari transition shadow-sm hover:shadow-md flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-safari-100 text-safari flex items-center justify-center p-3">
+              <i data-lucide="hotel" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <span class="text-[11px] font-bold text-safari uppercase tracking-wider">Hotel &amp; Resort OS</span>
+              <h3 class="text-xl font-bold text-slate-900 mt-0.5">2. Safari PMS</h3>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Complete hotel front desk operating system featuring visual room racks, instant guest folios, housekeeping automation, channel sync, and automated one-click night audits.
+            </p>
+            <div class="space-y-1.5 text-[11px] text-slate-700 pt-2 border-t border-slate-100">
+              <div class="flex items-center gap-1.5 font-medium"><i data-lucide="check" class="w-3.5 h-3.5 text-safari"></i> Interactive Visual Rack</div>
+              <div class="flex items-center gap-1.5 font-medium"><i data-lucide="check" class="w-3.5 h-3.5 text-safari"></i> Multi-Currency Guest Folios</div>
+              <div class="flex items-center gap-1.5 font-medium"><i data-lucide="check" class="w-3.5 h-3.5 text-safari"></i> Automated Night Audit</div>
+            </div>
+          </div>
+          <div class="pt-6">
+            <a href="index.html#suite" class="text-xs font-bold text-safari hover:underline flex items-center gap-1">
+              Explore PMS Features <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Pillar 3: Safari USALI ERP -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-safari transition shadow-sm hover:shadow-md flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-safari-100 text-safari flex items-center justify-center p-3">
+              <i data-lucide="pie-chart" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <span class="text-[11px] font-bold text-safari uppercase tracking-wider">Back-Office &amp; Financials</span>
+              <h3 class="text-xl font-bold text-slate-900 mt-0.5">3. Safari USALI ERP</h3>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Chartered Accountant-verified hospitality general ledger strictly adhering to USALI 11th &amp; 12th Editions. Real-time departmental P&amp;L, central supply chain, and fixed assets.
+            </p>
+            <div class="space-y-1.5 text-[11px] text-slate-700 pt-2 border-t border-slate-100">
+              <div class="flex items-center gap-1.5 font-medium"><i data-lucide="check" class="w-3.5 h-3.5 text-safari"></i> CA-Verified Ledger &amp; P&amp;L</div>
+              <div class="flex items-center gap-1.5 font-medium"><i data-lucide="check" class="w-3.5 h-3.5 text-safari"></i> Recipe Depletion &amp; Inventory</div>
+              <div class="flex items-center gap-1.5 font-medium"><i data-lucide="check" class="w-3.5 h-3.5 text-safari"></i> Fixed Asset Depreciation</div>
+            </div>
+          </div>
+          <div class="pt-6">
+            <a href="index.html#usali" class="text-xs font-bold text-safari hover:underline flex items-center gap-1">
+              Explore USALI ERP <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Pillar 4: Safari Event Management -->
+        <div class="bg-white rounded-2xl p-6 border-2 border-safari/80 hover:border-safari transition shadow-sm hover:shadow-md flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-safari text-white flex items-center justify-center p-3 shadow-xs">
+              <i data-lucide="calendar" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <span class="text-[11px] font-bold text-safari uppercase tracking-wider">Banquets &amp; Catering</span>
+              <h3 class="text-xl font-bold text-slate-900 mt-0.5">4. Safari Events</h3>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              The total package for convention halls, corporate seminars, and wedding banquets. Complete reservation calendar, quotation builder, item catalog, package deals, and automated BO.
+            </p>
+            <div class="space-y-1.5 text-[11px] text-slate-700 pt-2 border-t border-slate-100">
+              <div class="flex items-center gap-1.5 font-medium"><i data-lucide="check" class="w-3.5 h-3.5 text-safari"></i> Hall &amp; Venue Booking</div>
+              <div class="flex items-center gap-1.5 font-medium"><i data-lucide="check" class="w-3.5 h-3.5 text-safari"></i> Instant Multi-Tier Quotes</div>
+              <div class="flex items-center gap-1.5 font-medium"><i data-lucide="check" class="w-3.5 h-3.5 text-safari"></i> Banquet Order (BO / BEO)</div>
+            </div>
+          </div>
+          <div class="pt-6">
+            <a href="index.html#suite" class="text-xs font-bold text-safari hover:underline flex items-center gap-1">
+              Explore Event Package <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OUR MULTI-DISCIPLINARY TEAM & LEADERSHIP -->
+  <section class="py-24 max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+      <span class="text-xs font-bold text-safari uppercase tracking-widest">Behind The Technology</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Built by Industry Insiders, Not Just Coders</h2>
+      <p class="text-slate-600 text-sm">We combine real-world operational hospitality expertise, Chartered Accounting governance, and high-concurrency systems engineering.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Team Division 1 -->
+      <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+        <div class="w-12 h-12 rounded-xl bg-safari-100 text-safari flex items-center justify-center">
+          <i data-lucide="briefcase" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h3 class="text-base font-bold text-slate-900">Hospitality &amp; Retail Leads</h3>
+          <p class="text-xs text-safari font-semibold">Decades of Floor Experience</p>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Our product managers are former GMs, F&amp;B directors, and retail managers who know firsthand what happens during high-pressure Friday banquet rushes and peak holiday check-ins.
+        </p>
+      </div>
+
+      <!-- Team Division 2 -->
+      <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+        <div class="w-12 h-12 rounded-xl bg-safari-100 text-safari flex items-center justify-center">
+          <i data-lucide="shield-check" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h3 class="text-base font-bold text-slate-900">Chartered Accountants</h3>
+          <p class="text-xs text-safari font-semibold">USALI 11th &amp; 12th Certified</p>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Our financial core was directly designed and audited by certified practicing Chartered Accountants to ensure that every ledger entry, depreciation run, and departmental schedule conforms to strict international standards.
+        </p>
+      </div>
+
+      <!-- Team Division 3 -->
+      <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+        <div class="w-12 h-12 rounded-xl bg-safari-100 text-safari flex items-center justify-center">
+          <i data-lucide="cpu" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h3 class="text-base font-bold text-slate-900">Distributed Systems Architects</h3>
+          <p class="text-xs text-safari font-semibold">Offline-First Engine Engineers</p>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Specialists in transactional consistency, low-latency local database caching, and peer-to-peer data sync to make sure your cash registers and front desk never freeze, even with zero internet.
+        </p>
+      </div>
+
+      <!-- Team Division 4 -->
+      <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+        <div class="w-12 h-12 rounded-xl bg-safari-100 text-safari flex items-center justify-center">
+          <i data-lucide="headset" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h3 class="text-base font-bold text-slate-900">Rapid Deployment Squad</h3>
+          <p class="text-xs text-safari font-semibold">8-Day Go-Live &amp; 24/7 Standby</p>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Our dedicated onboarding engineers handle your hardware configuration, legacy data migration, staff role training, and stay on 24/7 standby via direct WhatsApp and hotline.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CORE VALUES & PRINCIPLES -->
+  <section class="py-20 bg-slate-900 text-white border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <span class="text-xs font-bold text-safari-100 uppercase tracking-widest">Our Guiding North Star</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">The Principles That Guide Every Commit</h2>
+        <p class="text-slate-400 text-sm">We don't build bloated shelfware. Every line of code exists to solve a real operating challenge for property owners and staff.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <div class="p-6 rounded-2xl bg-slate-800/60 border border-slate-700/60 space-y-3">
+          <div class="w-10 h-10 rounded-lg bg-safari flex items-center justify-center text-white">
+            <i data-lucide="lock" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white">1. Offline Resilience Is Mandatory</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Internet drops are inevitable in retail and hospitality. We design our software so that cashiers, servers, and front-desk agents never experience a loading spinner or aborted sale when the cloud is unreachable.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-800/60 border border-slate-700/60 space-y-3">
+          <div class="w-10 h-10 rounded-lg bg-safari flex items-center justify-center text-white">
+            <i data-lucide="file-check-2" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white">2. Audit-Grade Accounting Precision</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Guest charges, kitchen recipe depletions, fixed asset depreciation, and USALI schedules must balance to the penny. We treat financial rigor as our core non-negotiable benchmark.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-800/60 border border-slate-700/60 space-y-3">
+          <div class="w-10 h-10 rounded-lg bg-safari flex items-center justify-center text-white">
+            <i data-lucide="zap" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white">3. Zero-Excuse 8-Day Onboarding</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Enterprise software implementations shouldn't take six months. We back our deployment with guaranteed 8-day go-live SLAs, migrating menus, rooms, accounts, and historical records with zero business interruption.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ONBOARDING TIMELINE SUMMARY -->
+  <section class="py-20 max-w-7xl mx-auto px-6">
+    <div class="bg-gradient-to-br from-safari-50 via-white to-safari-50/50 p-8 sm:p-12 rounded-3xl border border-safari/30 shadow-md">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div class="space-y-4 max-w-2xl text-center lg:text-left">
+          <span class="px-3 py-1 rounded-full bg-safari text-white text-xs font-bold uppercase tracking-wider">
+            Fastest Deployment in the Industry
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            Transition to Safari in Just 8 Days with Zero Property Downtime
+          </h2>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Our deployment engineers handle your existing legacy database extraction, clean and map your USALI chart of accounts, configure POS registers and scale hardware, and train your staff in person.
+          </p>
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-bold text-slate-800 pt-2">
+            <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-safari"></i> Day 1-2: Data Audit &amp; Extraction</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-safari"></i> Day 3-5: Parallel Simulation</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-safari"></i> Day 6-8: Staff Training &amp; Cutover</span>
+          </div>
+        </div>
+
+        <div class="shrink-0 space-y-3 text-center">
+          <button type="button" data-open-demo-modal class="w-full sm:w-auto px-8 py-4 rounded-xl bg-safari hover:bg-safari-dark text-white font-bold text-sm shadow-lg shadow-safari/20 transition flex items-center justify-center gap-2">
+            <span>Schedule System Migration</span>
+            <i data-lucide="calendar" class="w-4 h-4"></i>
+          </button>
+          <p class="text-[11px] text-slate-500 font-medium">Or call our engineering desk: <a href="tel:01674914391" class="font-mono font-bold text-slate-900 hover:text-safari">01674914391</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIRECT CONTACT CALLOUT BANNER -->
+  <section class="py-16 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-6 text-center space-y-4">
+      <h3 class="text-2xl font-bold text-slate-900">Have Questions or Need a Custom Scope?</h3>
+      <p class="text-slate-600 text-sm max-w-xl mx-auto">
+        Speak directly with our technical leadership and product consultants. We respond immediately via phone, message, and WhatsApp.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-3">
+        <a href="tel:01674914391" class="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition font-mono">
+          <i data-lucide="phone-call" class="w-4 h-4 text-safari-100"></i> Direct Call: 01674914391
+        </a>
+        <a href="https://wa.me/8801674914391?text=Hi%20Safari%20Solutions,%20I'd%20like%20to%20know%20more%20about%20your%20company%20and%20products." target="_blank" rel="noopener" class="px-6 py-3 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs flex items-center gap-2 shadow-sm transition">
+          <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.772.82 2.791.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.806-5.768-5.806zm3.385 8.163c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.115-.516-1.815-.751-2.983-2.588-3.074-2.709-.091-.121-.734-.977-.734-1.865 0-.888.464-1.325.63-1.506.166-.182.363-.227.484-.227.121 0 .242.001.348.006.113.006.264-.043.413.315.152.364.521 1.272.566 1.363.045.091.076.197.015.318-.06.121-.09.197-.181.303-.091.106-.192.237-.274.318-.091.091-.186.19-.08.372.106.182.471.777 1.011 1.258.696.62 1.282.812 1.464.903.182.091.288.076.394-.045.106-.121.454-.53.576-.712.121-.182.242-.152.409-.091.167.061 1.06.5 1.242.591.182.091.303.136.348.212.045.076.045.439-.099.844zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2.05 22l4.978-1.306A9.946 9.946 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.636 0-3.155-.522-4.398-1.411l-.315-.227-2.955.775.789-2.88-.205-.327A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167 4.503 0 8.167 3.664 8.167 8.167 0 4.503-3.664 8.167-8.167 8.167z"/></svg>
+          <span>WhatsApp Chat: 01674914391</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="bg-slate-950 text-slate-300 pt-16 pb-12 border-t border-slate-900">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12">
+      
+      <!-- Column 1: Brand & Certification -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-2.5 text-white font-extrabold text-lg">
+          <div class="w-8 h-8 rounded-lg bg-safari flex items-center justify-center text-white text-sm font-extrabold">S</div>
+          <span>Safari Solutions</span>
+        </div>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Integrated Point of Sale (POS), Property Management (PMS), Safari Event Management Solutions, and CA-certified USALI ERP architecture built for retail, modern luxury, and resort hospitality.
+        </p>
+        <div class="flex items-center gap-3 pt-2 text-slate-400 text-xs">
+          <span class="inline-flex items-center gap-1"><i data-lucide="shield" class="w-3.5 h-3.5 text-safari"></i> SOC2 Type II</span>
+          <span class="inline-flex items-center gap-1"><i data-lucide="check" class="w-3.5 h-3.5 text-safari"></i> USALI 11th &amp; 12th</span>
+        </div>
+      </div>
+
+      <!-- Column 2: Solutions -->
+      <div>
+        <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-4">Enterprise Products</h4>
+        <ul class="space-y-2.5 text-xs">
+          <li><a href="index.html#suite" class="hover:text-white transition">Point of Sale (POS) Outlet Billing</a></li>
+          <li><a href="index.html#suite" class="hover:text-white transition">Property Management (PMS) Front Desk</a></li>
+          <li><a href="index.html#suite" class="hover:text-white transition">USALI Financial ERP &amp; General Ledger</a></li>
+          <li><a href="index.html#suite" class="hover:text-white transition">Safari Event Management (Banquets &amp; BO)</a></li>
+          <li><a href="index.html#suite" class="hover:text-white transition">Kitchen Display Systems (KDS)</a></li>
+          <li><a href="index.html#suite" class="hover:text-white transition">Biometric Roster &amp; Payroll Module</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Standards & SLA -->
+      <div>
+        <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-4">Company &amp; Standards</h4>
+        <ul class="space-y-2.5 text-xs">
+          <li><a href="about.html" class="text-safari-300 font-bold hover:text-white transition flex items-center gap-1.5"><i data-lucide="arrow-right" class="w-3 h-3 text-safari-400"></i> About Us (Who We Are)</a></li>
+          <li><a href="index.html#usali" class="hover:text-white transition">USALI Chart of Accounts Mapping</a></li>
+          <li><a href="index.html#implementation" class="hover:text-white transition">8-Day Zero-Downtime Migration</a></li>
+          <li><a href="index.html#roi" class="hover:text-white transition">Hotel ROI &amp; Operational Calculator</a></li>
+          <li><a href="index.html#comparison" class="hover:text-white transition">Legacy Systems Comparison</a></li>
+          <li><a href="index.html#faq" class="hover:text-white transition">Hardware &amp; Offline Documentation</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Contact & Support -->
+      <div>
+        <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-4">Global Operations</h4>
+        <div class="space-y-3 text-xs">
+          <p>Technical Sales: <span class="text-slate-200 block font-mono">sales@safarisolutions.com</span></p>
+          <p>Direct Call &amp; WhatsApp: <a href="tel:01674914391" class="text-slate-200 block font-mono hover:text-safari transition">01674914391</a></p>
+          <p>Regional HQ: <span class="text-slate-300 block">Enterprise Park, Hospitality Blvd</span></p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+      <p>&copy; 2026 Safari Integrated Business Solutions. All rights reserved.</p>
+      <div class="flex items-center gap-6">
+        <a href="about.html" class="hover:text-slate-400 transition font-semibold text-safari-300">About Us</a>
+        <a href="index.html#privacy" class="hover:text-slate-400 transition">Privacy Policy</a>
+        <a href="index.html#terms" class="hover:text-slate-400 transition">Terms of Service</a>
+        <a href="index.html#security" class="hover:text-slate-400 transition">Security Architecture</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- POPUP MODAL: REQUEST DEMO DIALOG -->
+  <dialog id="demo-modal" class="backdrop:bg-slate-900/70 backdrop:backdrop-blur-sm m-auto">
+    <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-lg w-full p-6 sm:p-8 text-slate-900 relative">
+      <button type="button" data-close-demo-modal class="absolute right-4 top-4 p-2 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition" aria-label="Close dialog">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="mb-5 space-y-1">
+        <span class="text-[11px] font-bold text-safari uppercase tracking-wider">Fast-Track Access</span>
+        <h3 class="text-xl font-extrabold text-slate-900">Schedule Safari Live Walkthrough</h3>
+        <p class="text-xs text-slate-600">See the POS, PMS, Event Management &amp; USALI ERP live on your property scale.</p>
+      </div>
+
+      <form id="modal-demo-form" class="space-y-3.5">
+        <div>
+          <label for="modal-name" class="block text-xs font-bold uppercase text-slate-700 mb-1">Full Name</label>
+          <input id="modal-name" type="text" required class="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-safari" placeholder="e.g. Rachel Adams" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="modal-email" class="block text-xs font-bold uppercase text-slate-700 mb-1">Work Email</label>
+            <input id="modal-email" type="email" required class="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-safari" placeholder="rachel@hotel.com" />
+          </div>
+          <div>
+            <label for="modal-phone" class="block text-xs font-bold uppercase text-slate-700 mb-1">Phone</label>
+            <input id="modal-phone" type="tel" required class="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-safari" placeholder="01674914391" />
+          </div>
+        </div>
+
+        <div>
+          <label for="modal-property" class="block text-xs font-bold uppercase text-slate-700 mb-1">Property / Business Name</label>
+          <input id="modal-property" type="text" required class="w-full px-3.5 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:border-safari" placeholder="e.g. Grand Horizon Hotel &amp; Resort" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="modal-rooms" class="block text-xs font-bold uppercase text-slate-700 mb-1">Scale / Units</label>
+            <select id="modal-rooms" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs bg-white focus:outline-none focus:border-safari">
+              <option>Super Shop / Retail Outlet</option>
+              <option>Boutique (1 - 50 Rooms)</option>
+              <option>Mid-Scale (50 - 150 Rooms)</option>
+              <option>Full-Service Resort (150+ Rooms)</option>
+              <option>Convention &amp; Event Center</option>
+              <option>Multi-Property Chain</option>
+            </select>
+          </div>
+          <div>
+            <label for="modal-timeline" class="block text-xs font-bold uppercase text-slate-700 mb-1">Target Go-Live</label>
+            <select id="modal-timeline" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs bg-white focus:outline-none focus:border-safari">
+              <option>Immediate (8-Day Fast Track)</option>
+              <option>Within 30 Days</option>
+              <option>Next Quarter</option>
+              <option>Budgeting / Evaluating</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <button type="submit" class="w-full py-3 rounded-xl bg-safari hover:bg-safari-dark text-white font-bold text-sm shadow-md transition flex items-center justify-center gap-2">
+            <span>Confirm Demo Registration</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </form>
+
+      <div id="modal-demo-success" class="hidden text-center py-8 space-y-3">
+        <div class="w-12 h-12 bg-safari-100 text-safari rounded-full flex items-center justify-center mx-auto">
+          <i data-lucide="check" class="w-6 h-6"></i>
+        </div>
+        <h4 class="text-lg font-bold text-slate-900">Live Walkthrough Reserved</h4>
+        <p class="text-xs text-slate-600 max-w-xs mx-auto">Our hospitality solutions architect will contact you within 2 business hours with meeting credentials.</p>
+        <span class="inline-block px-3 py-1 bg-slate-100 font-mono text-xs text-slate-700 rounded-md font-bold" data-ref-id>SAF-2026-CONFIRMED</span>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- POPUP MODAL: USALI COA DOCUMENTATION -->
+  <dialog id="coa-modal" class="backdrop:bg-slate-900/70 backdrop:backdrop-blur-sm m-auto">
+    <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-2xl w-full p-6 sm:p-8 text-slate-900 relative">
+      <button type="button" data-close-coa-modal class="absolute right-4 top-4 p-2 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition" aria-label="Close dialog">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="mb-4 space-y-1">
+        <span class="text-[11px] font-bold text-safari uppercase tracking-wider">Financial Framework</span>
+        <h3 class="text-xl font-extrabold text-slate-900">USALI 11th &amp; 12th Standard Chart of Accounts</h3>
+        <p class="text-xs text-slate-600">Sample segment of standard hospitality general ledger account codes native to Safari ERP.</p>
+      </div>
+
+      <div class="border border-slate-200 rounded-xl overflow-hidden max-h-80 overflow-y-auto text-xs font-mono">
+        <table class="w-full text-left">
+          <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200 sticky top-0">
+            <tr>
+              <th class="p-2.5">Account Code</th>
+              <th class="p-2.5">Account Title</th>
+              <th class="p-2.5">USALI Schedule</th>
+              <th class="p-2.5">Type</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-slate-600">
+            <tr><td class="p-2.5 font-bold text-safari">4110</td><td>Transient Rooms Revenue</td><td>Schedule 1 (Rooms)</td><td>Revenue</td></tr>
+            <tr><td class="p-2.5 font-bold text-safari">4120</td><td>Group Rooms Revenue</td><td>Schedule 1 (Rooms)</td><td>Revenue</td></tr>
+            <tr><td class="p-2.5 font-bold text-safari">4210</td><td>Food Sales (Dining Outlets)</td><td>Schedule 2 (F&amp;B)</td><td>Revenue</td></tr>
+            <tr><td class="p-2.5 font-bold text-safari">4220</td><td>Banquet &amp; Catering Food</td><td>Schedule 2 (F&amp;B)</td><td>Revenue</td></tr>
+            <tr><td class="p-2.5 font-bold text-safari">4230</td><td>Beverage Sales (Bars &amp; Lounges)</td><td>Schedule 2 (F&amp;B)</td><td>Revenue</td></tr>
+            <tr><td class="p-2.5 font-bold text-safari">5110</td><td>Front Desk Salaries &amp; Wages</td><td>Schedule 1 (Rooms)</td><td>Payroll</td></tr>
+            <tr><td class="p-2.5 font-bold text-safari">5120</td><td>Housekeeping Wages</td><td>Schedule 1 (Rooms)</td><td>Payroll</td></tr>
+            <tr><td class="p-2.5 font-bold text-safari">6110</td><td>Linen &amp; Laundry Operating Supplies</td><td>Schedule 1 (Rooms)</td><td>Expense</td></tr>
+            <tr><td class="p-2.5 font-bold text-safari">6210</td><td>Cost of Food Sold (Depletion)</td><td>Schedule 2 (F&amp;B)</td><td>Cost of Sales</td></tr>
+            <tr><td class="p-2.5 font-bold text-safari">7110</td><td>Administrative &amp; General (A&amp;G)</td><td>Schedule 5 (A&amp;G)</td><td>Operating Exp</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+        <span class="text-slate-500">Includes complete 4-level ledger hierarchies and full custom mapping.</span>
+        <button type="button" data-close-coa-modal class="px-4 py-2 rounded-lg bg-slate-900 text-white font-semibold text-xs hover:bg-slate-800 transition">
+          Close Window
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- FLOATING 3-LAYER CONTACT DOCK & EXPANDABLE POPUP (WHATSAPP, MESSAGE, CALL) -->
+  <div id="safari-contact-wrapper" class="safari-contact-wrapper" style="position: fixed !important; right: 24px !important; bottom: 24px !important; z-index: 99999 !important;">
+    
+    <!-- THE DOCK PILL (3 DISTINCT BUTTON LAYERS) -->
+    <div id="safari-contact-dock" class="safari-contact-dock" title="Contact Safari (WhatsApp, Message, Call)" aria-label="Contact Safari Options">
+      
+      <!-- Layer 1: WhatsApp -->
+      <button id="dock-whatsapp-btn" type="button" class="dock-layer-btn group" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+        <div class="relative flex items-center justify-center">
+          <svg class="w-6 h-6 text-[#25D366] fill-[#25D366] transition-transform duration-200 group-hover:scale-110" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.772.82 2.791.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.806-5.768-5.806zm3.385 8.163c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.115-.516-1.815-.751-2.983-2.588-3.074-2.709-.091-.121-.734-.977-.734-1.865 0-.888.464-1.325.63-1.506.166-.182.363-.227.484-.227.121 0 .242.001.348.006.113.006.264-.043.413.315.152.364.521 1.272.566 1.363.045.091.076.197.015.318-.06.121-.09.197-.181.303-.091.106-.192.237-.274.318-.091.091-.186.19-.08.372.106.182.471.777 1.011 1.258.696.62 1.282.812 1.464.903.182.091.288.076.394-.045.106-.121.454-.53.576-.712.121-.182.242-.152.409-.091.167.061 1.06.5 1.242.591.182.091.303.136.348.212.045.076.045.439-.099.844zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2.05 22l4.978-1.306A9.946 9.946 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.636 0-3.155-.522-4.398-1.411l-.315-.227-2.955.775.789-2.88-.205-.327A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167 4.503 0 8.167 3.664 8.167 8.167 0 4.503-3.664 8.167-8.167 8.167z"/>
+          </svg>
+          <span class="dock-badge"></span>
+        </div>
+        <span class="dock-tooltip">WhatsApp</span>
+      </button>
+
+      <!-- Divider Line -->
+      <div class="dock-divider"></div>
+
+      <!-- Layer 2: Message -->
+      <button id="dock-message-btn" type="button" class="dock-layer-btn group" title="Send a Message" aria-label="Send a Message">
+        <svg class="w-6 h-6 text-safari fill-safari transition-transform duration-200 group-hover:scale-110" viewBox="0 0 24 24">
+          <path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-4.586l-3.707 3.707A1 1 0 0 1 10 21v-3H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
+          <circle cx="8" cy="11" r="1.3" fill="white"/>
+          <circle cx="12" cy="11" r="1.3" fill="white"/>
+          <circle cx="16" cy="11" r="1.3" fill="white"/>
+        </svg>
+        <span class="dock-tooltip">Message</span>
+      </button>
+
+      <!-- Divider Line -->
+      <div class="dock-divider"></div>
+
+      <!-- Layer 3: Call -->
+      <button id="dock-call-btn" type="button" class="dock-layer-btn group" title="Call Sales (01674914391)" aria-label="Call Sales">
+        <svg class="w-6 h-6 text-safari transition-transform duration-200 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          <path d="M14.05 2a9 9 0 0 1 8 7.94" stroke-width="2"/>
+          <path d="M14.05 6A5 5 0 0 1 18 10" stroke-width="2"/>
+        </svg>
+        <span class="dock-tooltip">Call Sales</span>
+      </button>
+    </div>
+
+    <!-- 3-LAYER INTERACTIVE POPUP CONTACT CARD -->
+    <div id="safari-contact-card" class="safari-contact-card hidden" style="position: fixed !important; right: 64px !important; bottom: 85px !important; z-index: 99999 !important;">
+      <!-- Header -->
+      <div class="px-5 py-3.5 border-b border-slate-100 flex items-center justify-between bg-slate-50/80">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-safari animate-pulse"></span>
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-800">Safari Direct Connect</span>
+        </div>
+        <button id="safari-card-close-btn" type="button" class="w-7 h-7 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-200/60 transition flex items-center justify-center" aria-label="Close contact card">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Card Body: 3 Distinct Layers -->
+      <div class="p-5 space-y-4">
+
+        <!-- LAYER 1: WHATSAPP -->
+        <div id="card-layer-whatsapp" class="p-3.5 rounded-2xl border border-slate-200/70 hover:border-emerald-300 hover:bg-emerald-50/30 transition group">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-emerald-100/70 flex items-center justify-center shrink-0 text-[#25D366] group-hover:scale-105 transition-transform">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.772.82 2.791.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.806-5.768-5.806zm3.385 8.163c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.115-.516-1.815-.751-2.983-2.588-3.074-2.709-.091-.121-.734-.977-.734-1.865 0-.888.464-1.325.63-1.506.166-.182.363-.227.484-.227.121 0 .242.001.348.006.113.006.264-.043.413.315.152.364.521 1.272.566 1.363.045.091.076.197.015.318-.06.121-.09.197-.181.303-.091.106-.192.237-.274.318-.091.091-.186.19-.08.372.106.182.471.777 1.011 1.258.696.62 1.282.812 1.464.903.182.091.288.076.394-.045.106-.121.454-.53.576-.712.121-.182.242-.152.409-.091.167.061 1.06.5 1.242.591.182.091.303.136.348.212.045.076.045.439-.099.844zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.178L2.05 22l4.978-1.306A9.946 9.946 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.636 0-3.155-.522-4.398-1.411l-.315-.227-2.955.775.789-2.88-.205-.327A8.136 8.136 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167 4.503 0 8.167 3.664 8.167 8.167 0 4.503-3.664 8.167-8.167 8.167z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900 group-hover:text-emerald-700 transition">WhatsApp</h4>
+                <p class="text-[11px] text-emerald-600 font-semibold flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse"></span> Online • 01674914391
+                </p>
+              </div>
+            </div>
+            <a id="card-whatsapp-link" href="https://wa.me/8801674914391?text=Hi%20Safari%20Solutions,%20I'd%20like%20to%20inquire%20about%20your%20software." target="_blank" rel="noopener" class="px-3.5 py-1.5 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold transition shadow-sm flex items-center gap-1 shrink-0">
+              <span>Chat</span>
+              <svg class="w-3.5 h-3.5 stroke-white fill-none stroke-[2.5]" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- LAYER 2: MESSAGE -->
+        <div id="card-layer-message" class="p-3.5 rounded-2xl border border-slate-200/70 hover:border-safari/40 hover:bg-safari-50/30 transition">
+          <div class="flex items-center justify-between cursor-pointer" id="message-toggle-trigger">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-safari-50 flex items-center justify-center shrink-0 text-safari">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                  <path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-4.586l-3.707 3.707A1 1 0 0 1 10 21v-3H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
+                  <circle cx="8" cy="11" r="1.3" fill="white"/>
+                  <circle cx="12" cy="11" r="1.3" fill="white"/>
+                  <circle cx="16" cy="11" r="1.3" fill="white"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900">Message</h4>
+                <p class="text-[11px] text-slate-500 font-medium">Quick inquiry to 01674914391</p>
+              </div>
+            </div>
+            <button type="button" id="message-action-btn" class="px-3 py-1.5 rounded-xl bg-safari-100 text-safari-800 hover:bg-safari hover:text-white text-xs font-bold transition border border-safari/20">
+              Inquire
+            </button>
+          </div>
+
+          <!-- Expandable Quick Inquiry Panel -->
+          <div id="quick-inquiry-box" class="mt-3 pt-3 border-t border-slate-200/80 space-y-2">
+            <div class="flex flex-wrap gap-1.5">
+              <button type="button" data-prompt-chip="Hi Safari Team, I would like to schedule a live demo of your POS and PMS." class="px-2 py-0.5 rounded-md bg-white border border-slate-200 hover:border-safari text-[10px] font-semibold text-slate-700 hover:text-safari transition">🚀 Live Demo</button>
+              <button type="button" data-prompt-chip="Hello, I want to inquire about custom pricing options for our property." class="px-2 py-0.5 rounded-md bg-white border border-slate-200 hover:border-safari text-[10px] font-semibold text-slate-700 hover:text-safari transition">💰 Pricing</button>
+              <button type="button" data-prompt-chip="Hi, can you explain how Safari handles USALI Chart of Accounts compliance?" class="px-2 py-0.5 rounded-md bg-white border border-slate-200 hover:border-safari text-[10px] font-semibold text-slate-700 hover:text-safari transition">📊 USALI ERP</button>
+            </div>
+            <form id="safari-quick-msg-form" class="flex gap-1.5">
+              <input id="safari-quick-msg-input" type="text" placeholder="Type your message..." class="flex-1 px-3 py-2 rounded-xl border border-slate-200 text-xs text-slate-800 focus:outline-none focus:border-safari focus:ring-1 focus:ring-safari" />
+              <button type="submit" class="px-3 py-2 rounded-xl bg-safari hover:bg-safari-dark text-white text-xs font-bold transition shadow-xs flex items-center justify-center shrink-0" aria-label="Send Message">
+                <svg class="w-3.5 h-3.5 fill-none stroke-white stroke-[2.5]" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- LAYER 3: CALL SALES -->
+        <div id="card-layer-call" class="p-3.5 rounded-2xl border border-slate-200/70 bg-slate-50/50 hover:bg-safari-50/30 transition">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-safari-50 flex items-center justify-center shrink-0 text-safari">
+              <svg class="w-6 h-6 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                <path d="M14.05 2a9 9 0 0 1 8 7.94" stroke-width="2"/>
+                <path d="M14.05 6A5 5 0 0 1 18 10" stroke-width="2"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-slate-900">Call Sales</h4>
+              <p class="text-[11px] text-slate-500 font-medium">Direct enterprise desk</p>
+            </div>
+          </div>
+
+          <!-- Direct Phone Number: 01674914391 -->
+          <a href="tel:01674914391" class="text-[26px] font-black text-slate-900 tracking-tight block hover:text-safari transition font-sans pt-2">
+            01674914391
+          </a>
+
+          <!-- Complete list of contact numbers link -->
+          <button type="button" id="country-numbers-toggle" class="text-xs text-safari hover:underline transition font-bold block pt-1 text-left">
+            Complete list of contact numbers
+          </button>
+
+          <!-- Expandable Local Country Numbers List -->
+          <div id="country-numbers-list" class="hidden mt-3 p-3 rounded-xl bg-white border border-slate-200 text-xs space-y-2 shadow-xs">
+            <div class="flex justify-between items-center text-slate-700">
+              <span class="font-medium">🇧🇩 Direct Call Desk</span>
+              <a href="tel:01674914391" class="font-mono font-bold text-slate-900 hover:text-safari">01674914391</a>
+            </div>
+            <div class="flex justify-between items-center text-slate-700">
+              <span class="font-medium">💬 WhatsApp &amp; SMS</span>
+              <a href="https://wa.me/8801674914391" target="_blank" rel="noopener" class="font-mono font-bold text-slate-900 hover:text-safari">+880 1674 914391</a>
+            </div>
+            <div class="flex justify-between items-center text-slate-700">
+              <span class="font-medium">🌐 International Direct</span>
+              <a href="tel:+8801674914391" class="font-mono font-bold text-slate-900 hover:text-safari">+880 1674 914391</a>
+            </div>
+            <p class="text-[10px] text-slate-400 pt-1 border-t border-slate-100">Direct hotline for POS, PMS, USALI ERP &amp; Event Management.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Core JavaScript Engine -->
+  <script src="app.js"></script>
+</body>
+</html>
