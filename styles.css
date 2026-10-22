@@ -298,11 +298,6 @@ dialog[open] {
   filter: drop-shadow(0 20px 25px rgba(106, 118, 12, 0.45));
 }
 
-#floating-demo-widget.is-dragging * {
-  cursor: grabbing !important;
-  pointer-events: none;
-}
-
 @media (max-width: 640px) {
   .safari-contact-dock {
     bottom: 84px !important;

@@ -669,7 +669,15 @@ function setupDemoForms() {
     openModalBtns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        modal.showModal();
+        try {
+          if (typeof modal.showModal === 'function') {
+            modal.showModal();
+          } else {
+            modal.setAttribute('open', '');
+          }
+        } catch (err) {
+          modal.setAttribute('open', '');
+        }
       });
     });
 
@@ -1237,9 +1245,6 @@ function setupDraggableDemoWidget() {
     initialLeft = rect.left;
     initialTop = rect.top;
 
-    widget.style.transition = 'none';
-    widget.classList.add('is-dragging');
-
     if (e.type === 'mousedown') {
       window.addEventListener('mousemove', onPointerMove, { passive: false });
       window.addEventListener('mouseup', onPointerUp);
@@ -1259,8 +1264,11 @@ function setupDraggableDemoWidget() {
     const dx = clientX - startX;
     const dy = clientY - startY;
 
-    if (!hasMoved && Math.hypot(dx, dy) > 4) {
+    // Only initiate dragging once movement threshold is crossed
+    if (!hasMoved && Math.hypot(dx, dy) > 8) {
       hasMoved = true;
+      widget.style.transition = 'none';
+      widget.classList.add('is-dragging');
     }
 
     if (hasMoved) {
@@ -1287,21 +1295,38 @@ function setupDraggableDemoWidget() {
     if (hasMoved) {
       const rect = widget.getBoundingClientRect();
       savePosition(rect.left, rect.top);
+      // Keep hasMoved true for a brief instant to prevent synthetic click after dragging
+      setTimeout(() => {
+        hasMoved = false;
+      }, 150);
     }
   }
 
   widget.addEventListener('mousedown', onPointerDown);
   widget.addEventListener('touchstart', onPointerDown, { passive: true });
 
-  // Suppress modal open if it was a drag gesture
+  // Dedicated click handler: reliably opens modal if not dragged
   if (btn) {
     btn.addEventListener('click', (e) => {
       if (hasMoved) {
         e.preventDefault();
         e.stopPropagation();
-        hasMoved = false;
+        return;
       }
-    }, true);
+      e.preventDefault();
+      const modal = document.getElementById('demo-modal');
+      if (modal) {
+        try {
+          if (typeof modal.showModal === 'function') {
+            modal.showModal();
+          } else {
+            modal.setAttribute('open', '');
+          }
+        } catch (err) {
+          modal.setAttribute('open', '');
+        }
+      }
+    });
   }
 }
 
