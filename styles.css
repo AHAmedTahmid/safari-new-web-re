@@ -297,7 +297,7 @@ dialog[open] {
 
 /* Print Styles for USALI Reports */
 @media print {
-  header, footer, #demo, #roi, #faq, .no-print, .safari-contact-dock, .safari-contact-card {
+  header, footer, #demo, #roi, #faq, .no-print, .safari-contact-dock, .safari-contact-card, #floating-demo-widget {
     display: none !important;
   }
   #usali {

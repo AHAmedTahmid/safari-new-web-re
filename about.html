@@ -54,43 +54,44 @@
 <body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-safari selection:text-white">
 
   <!-- NAVIGATION HEADER -->
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+  <header class="sticky top-0 z-40 bg-white/85 backdrop-blur-xl border-b border-slate-200/80 transition-all">
+    <div class="max-w-7xl mx-auto px-6 h-[68px] flex items-center justify-between">
       
       <!-- Brand Logo -->
       <a href="index.html" class="flex items-center gap-3 group" title="Return to Safari Solutions Home">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-safari to-safari-dark flex items-center justify-center text-white font-extrabold text-xl shadow-md group-hover:shadow-safari/30 transition">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-safari via-safari to-safari-dark flex items-center justify-center text-white font-extrabold text-base shadow-sm ring-1 ring-safari/20 group-hover:scale-105 transition-transform">
           S
         </div>
-        <div class="leading-tight">
-          <span class="text-xl font-extrabold tracking-tight text-slate-900 block group-hover:text-safari transition">SAFARI</span>
-          <span class="text-[10px] tracking-wider uppercase text-safari font-bold">Integrated Solutions</span>
+        <div class="leading-none">
+          <span class="text-lg font-black tracking-tight text-slate-900 block group-hover:text-safari transition">SAFARI</span>
+          <span class="text-[9px] tracking-widest uppercase text-safari font-bold block mt-0.5">INTEGRATED SOLUTIONS</span>
         </div>
       </a>
 
       <!-- Desktop Navigation Links -->
-      <nav class="hidden lg:flex items-center gap-8 font-medium text-slate-600 text-sm" aria-label="Main Navigation">
-        <a href="index.html" class="hover:text-safari transition">Home</a>
-        <a href="index.html#suite" class="hover:text-safari transition">Product Suite</a>
-        <a href="index.html#usali" class="hover:text-safari transition flex items-center gap-1">
-          USALI Standard
-          <span class="text-[10px] bg-safari-100 text-safari-800 px-1.5 py-0.5 rounded font-bold">CA Verified</span>
+      <nav class="hidden lg:flex items-center gap-1 font-semibold text-slate-600 text-[13px]" aria-label="Main Navigation">
+        <a href="index.html" class="px-3 py-1.5 rounded-lg hover:text-slate-900 hover:bg-slate-100/70 transition">Home</a>
+        <a href="index.html#suite" class="px-3 py-1.5 rounded-lg hover:text-slate-900 hover:bg-slate-100/70 transition">Product Suite</a>
+        <a href="index.html#usali" class="px-3 py-1.5 rounded-lg hover:text-slate-900 hover:bg-slate-100/70 transition flex items-center gap-1.5">
+          <span>USALI Standard</span>
+          <span class="text-[9px] bg-safari/10 text-safari px-1.5 py-0.5 rounded-full font-bold border border-safari/20">CA Verified</span>
         </a>
-        <a href="index.html#roi" class="hover:text-safari transition">ROI Calculator</a>
-        <a href="index.html#implementation" class="hover:text-safari transition">8-Day Go-Live</a>
-        <a href="index.html#faq" class="hover:text-safari transition">FAQ</a>
-        <a href="about.html" class="text-safari font-bold border-b-2 border-safari pb-0.5 transition">About Us</a>
+        <a href="index.html#roi" class="px-3 py-1.5 rounded-lg hover:text-slate-900 hover:bg-slate-100/70 transition">ROI Calculator</a>
+        <a href="index.html#implementation" class="px-3 py-1.5 rounded-lg hover:text-slate-900 hover:bg-slate-100/70 transition">8-Day Go-Live</a>
+        <a href="index.html#faq" class="px-3 py-1.5 rounded-lg hover:text-slate-900 hover:bg-slate-100/70 transition">FAQ</a>
+        <a href="about.html" class="px-3 py-1.5 rounded-lg text-safari font-bold bg-safari-50 transition">About Us</a>
       </nav>
 
-      <!-- Desktop Actions -->
-      <div class="hidden md:flex items-center gap-4">
-        <button type="button" data-open-coa-modal class="text-xs font-bold text-slate-600 hover:text-safari px-3 py-2 rounded-lg hover:bg-slate-100 transition flex items-center gap-1.5">
-          <i data-lucide="file-spreadsheet" class="w-4 h-4 text-safari"></i> Sample COA
+      <!-- Desktop Right Actions (Elegant & Clean: No bulky CTA) -->
+      <div class="hidden md:flex items-center gap-3">
+        <button type="button" data-open-coa-modal class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200/80 transition shadow-xs">
+          <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5 text-safari"></i>
+          <span>Sample COA</span>
         </button>
-        <button type="button" data-open-demo-modal class="px-5 py-2.5 rounded-xl bg-safari hover:bg-safari-dark text-white font-semibold text-sm transition shadow-sm hover:shadow-lg hover:shadow-safari/20 flex items-center gap-2">
-          <span>Request Demo</span>
-          <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </button>
+        <a href="tel:01674914391" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-800 hover:text-safari bg-safari-50 hover:bg-safari-100/80 border border-safari/20 transition-all font-mono" title="Direct Hotline">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-safari"></i>
+          <span>01674914391</span>
+        </a>
       </div>
 
       <!-- Mobile Hamburger Button -->
@@ -967,6 +968,27 @@
       </div>
     </div>
   </div>
+
+  <!-- FIXED FLOATING "REQUEST A DEMO" BUTTON (LIKE WHATSAPP) -->
+  <aside id="floating-demo-widget" class="fixed bottom-5 left-4 sm:bottom-6 sm:left-6 z-40 select-none group" aria-label="Quick Request Demo">
+    <button type="button" data-open-demo-modal class="flex items-center gap-3 pl-3 pr-4 py-2.5 rounded-full bg-gradient-to-r from-safari-800 via-safari to-safari-700 hover:from-safari hover:to-safari-dark text-white shadow-xl shadow-safari/35 border border-safari-300/40 hover:shadow-2xl hover:shadow-safari/50 hover:scale-[1.04] active:scale-95 transition-all duration-300 backdrop-blur-md cursor-pointer">
+      <div class="relative flex items-center justify-center w-8 h-8 rounded-full bg-white/20 text-white shadow-inner">
+        <i data-lucide="sparkles" class="w-4 h-4 text-safari-100"></i>
+        <!-- Live Pulse Indicator -->
+        <span class="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400 border border-white"></span>
+        </span>
+      </div>
+      <div class="text-left">
+        <span class="block text-[9px] uppercase tracking-widest text-safari-200 font-extrabold leading-none">Instant Tour</span>
+        <span class="block text-xs font-black tracking-tight text-white leading-tight mt-0.5">Request a Demo</span>
+      </div>
+      <div class="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center text-white group-hover:bg-white group-hover:text-safari transition-all shrink-0 ml-0.5">
+        <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"></i>
+      </div>
+    </button>
+  </aside>
 
   <!-- Core JavaScript Engine -->
   <script src="app.js"></script>
