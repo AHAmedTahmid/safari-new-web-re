@@ -76,17 +76,58 @@ Then visit `http://localhost:3000` in your web browser.
 
 ```
 safari-solutions/
-├── index.html        # Main semantic, accessible website markup
-├── styles.css        # Custom CSS, custom range sliders, animations, modals & toasts
-├── app.js            # Interactive calculators, simulators, USALI engine & form logic
+├── index.html        # Main landing page (POS, PMS, ERP, Event Management)
+├── about.html        # About Us page (Company story, leadership, CA verification)
+├── styles.css        # Tailwind extensions, custom range sliders, animations, dock & modal styles
+├── app.js            # Core interactive engine (ROI calculator, transaction simulator, modals, drag logic)
+├── server.js         # Built-in lightweight Node.js HTTP server (auto-port fallback)
+├── assets/           # Brand assets
+│   ├── logo.png             # Crisp cropped official brand logo
+│   ├── logo-transparent.png # Transparent background logo
+│   └── logo-original.jpg    # Master source logo
 └── README.md         # Documentation & guide
 ```
 
 ---
 
-## 🎨 Branding & Customization
+## 🚀 How to Run Locally
 
-- **Primary Brand Color**: Safari Olive (`#6A760C` / Tailwind `safari`)
-- **Dark Elements**: Enterprise Slate (`#0f172a`, `#020617`)
-- **Accents**: Emerald Green (`#10b981`) for real-time status and financial credits
-- All phone numbers, emails, and address placeholders in `index.html` can be easily updated to match your live business contact details.
+```powershell
+node server.js
+```
+Then visit `http://localhost:3002/` (or port assigned) in your browser.
+
+---
+
+## 🌟 Key Features & Interactivity
+
+1. **Brand Identity & Logo**
+   - Official hexagonal monogram brand logo integrated into desktop navbar, mobile drawer, footer badge, and browser tab favicon.
+   - Standardized company name: **Safari Integrated Business Solutions**.
+
+2. **Movable / Draggable "Request a Demo" Widget**
+   - Floating interactive button on the bottom left that users can drag anywhere on screen.
+   - Screen-clamped and persists chosen location in `localStorage`.
+   - Single click or tap immediately pops open the live walkthrough booking dialog.
+
+3. **3-Layer Floating Contact Dock**
+   - Pinned cleanly to the right viewport edge for fast contact:
+     - **WhatsApp**: Instant chat link to `+880 1674 914391`.
+     - **Message / Quick Inquiry**: Quick chips for POS, PMS, and USALI inquiries.
+     - **Call Sales**: Direct dialing hotline `01674914391`.
+
+4. **Product Suite Coverage (4 Core Pillars)**
+   1. **Safari POS**: Super shops, retail, multi-outlet food & beverage with offline sync.
+   2. **Safari PMS**: Hotel & resort front desk, folio billing, reservations, housekeeping.
+   3. **Safari USALI ERP**: CA-verified USALI 11th & 12th general ledger, fixed assets & supply chain.
+   4. **Safari Event Management Solutions**: Banquets, catering packages, reservations & Banquet Orders (BO).
+
+5. **Single-Line USALI & System Status Ribbon**
+   - Real-time indicator for Cloud & Offline sync, test offline simulation toggle, WhatsApp hotline, and 24/7 priority support.
+
+6. **Interactive Hospitality ROI Calculator & Transaction Simulator**
+   - Real-time savings projections based on room keys, ADR, occupancy, and outlet count.
+   - Sub-second transaction trace simulator across POS -> PMS -> USALI Ledger.
+
+7. **Dedicated About Us Page (`about.html`)**
+   - Complete company story, mission, executive leadership, and CA compliance credentials.
