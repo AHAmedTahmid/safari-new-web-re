@@ -977,7 +977,7 @@ function setupUnifiedContactWidget() {
         return;
       }
       const encoded = encodeURIComponent(`Hi Safari Solutions Team! ${text}`);
-      window.open(`https://wa.me/8801674914391?text=${encoded}`, '_blank', 'noopener,noreferrer');
+      window.open(`https://wa.me/8801348214140?text=${encoded}`, '_blank', 'noopener,noreferrer');
       showToast('Opening chat with your inquiry...', 'success');
       if (msgInput) msgInput.value = '';
       closeCard();

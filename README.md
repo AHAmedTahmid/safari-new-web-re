@@ -112,9 +112,9 @@ Then visit `http://localhost:3002/` (or port assigned) in your browser.
 
 3. **3-Layer Floating Contact Dock**
    - Pinned cleanly to the right viewport edge for fast contact:
-     - **WhatsApp**: Instant chat link to `+880 1674 914391`.
+     - **WhatsApp**: Instant chat link to `+880 1348 214140`.
      - **Message / Quick Inquiry**: Quick chips for POS, PMS, and USALI inquiries.
-     - **Call Sales**: Direct dialing hotline `01674914391`.
+     - **Call Sales**: Direct dialing sales hotlines `01348214140` and `01348214141`.
 
 4. **Product Suite Coverage (4 Core Pillars)**
    1. **Safari POS**: Super shops, retail, multi-outlet food & beverage with offline sync.
