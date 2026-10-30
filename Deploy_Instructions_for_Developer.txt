@@ -1,0 +1,56 @@
+﻿INSTRUCTIONS FOR DEVELOPER: LIVE WEBSITE DEPLOYMENT
+Project: Safari Integrated Business Solutions
+Repository: https://github.com/AHAmedTahmid/safari-new-web-re
+Branches: main / live (latest commit: 9fdafbf)
+
+======================================================================
+SUMMARY
+======================================================================
+The website has been updated to remove the personal number (01674914391)
+and configure the two new official sales hotlines:
+- Sales Hotline 1 & WhatsApp: 01348214140 (+8801348214140)
+- Sales Hotline 2: 01348214141 (+8801348214141)
+
+All changes are committed and pushed to origin/main and origin/live.
+
+======================================================================
+THE ISSUE WITH GITHUB ACTIONS AUTO-DEPLOY
+======================================================================
+The "Deploy to production" workflow (.github/workflows/deploy.yml)
+failed during the rsync-over-SSH step with:
+
+  ***@***: Permission denied (publickey,password).
+  rsync error: unexplained error (code 255) at io.c(232)
+
+Root Cause:
+The private key in GitHub Secrets (SSH_PRIVATE_KEY) is valid, but the
+VPS is rejecting it because the matching public key is not yet present
+in ~/.ssh/authorized_keys for the deploy user on the server.
+
+======================================================================
+ACTION 1: UPDATE THE LIVE SITE IMMEDIATELY (Takes 30 seconds)
+======================================================================
+SSH into the VPS server and run:
+
+cd /var/www/safaribs-site
+git pull origin main
+
+(Alternatively, upload the updated index.html, about.html, and app.js)
+
+======================================================================
+ACTION 2: FIX GITHUB ACTIONS AUTO-DEPLOY PERMANENTLY
+======================================================================
+To allow future git pushes to automatically deploy without manual work:
+
+1. Add this exact public key to ~/.ssh/authorized_keys of the deploy
+   user on the VPS (/home/deploy/.ssh/authorized_keys):
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOInwq+TLGEKRiNENOYIcajemy8w332Q7pkIYU0ju5Cs github-action
+
+2. Ensure the permissions on the VPS are correct:
+
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+
+Once added, the GitHub Action "Deploy to production" will succeed and
+automatically update https://safaribs.com on every push to main.
