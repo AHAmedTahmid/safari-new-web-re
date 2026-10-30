@@ -23,8 +23,12 @@ jobs:
           SSH_PORT: ${{ secrets.SSH_PORT || '22' }}
         run: |
           mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_deploy
+          printf '%s\n' "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_deploy
           chmod 600 ~/.ssh/id_deploy
+          echo "Key inspection:"
+          ssh-keygen -l -f ~/.ssh/id_deploy || echo "WARNING: ssh-keygen failed to parse id_deploy"
+          echo "=== Public key (ensure this is in ~/.ssh/authorized_keys on server) ==="
+          ssh-keygen -y -f ~/.ssh/id_deploy || true
           ssh-keyscan -p "$SSH_PORT" -H "$SSH_HOST" >> ~/.ssh/known_hosts
 
       # Copies the site files only. Files deleted from the repo are NOT removed
@@ -43,5 +47,5 @@ jobs:
             --exclude 'server.js' \
             --exclude 'README.md' \
             --exclude 'CLAUDE.md' \
-            -e "ssh -i ~/.ssh/id_deploy -p $SSH_PORT" \
+            -e "ssh -v -i ~/.ssh/id_deploy -p $SSH_PORT -o BatchMode=yes -o StrictHostKeyChecking=accept-new -o PubkeyAcceptedKeyTypes=+ssh-rsa" \
             ./ "$SSH_USER@$SSH_HOST:$DEPLOY_PATH/"
