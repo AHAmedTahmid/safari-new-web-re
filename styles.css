@@ -263,25 +263,97 @@ dialog[open] {
   margin: 2px 0 !important;
 }
 
-/* 3-Layer Popup Card (Desktop & Mobile) */
+/* 3-Channel Dual-Hotline Popup Card (Desktop & Mobile) */
 .safari-contact-card {
   position: fixed !important;
   right: 64px !important;
   bottom: 85px !important;
-  width: 340px !important;
+  width: 380px !important;
   max-width: calc(100vw - 28px) !important;
-  background: #ffffff !important;
-  border-radius: 22px !important;
-  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.22), 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 24px 60px -12px rgba(15, 23, 42, 0.25), 0 0 0 1px rgba(226, 232, 240, 0.8) !important;
   border: 1px solid #e2e8f0 !important;
   z-index: 99999 !important;
   overflow: hidden !important;
-  animation: safariCardPop 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  animation: safariCardPop 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 @keyframes safariCardPop {
-  0% { opacity: 0; transform: scale(0.92) translateY(12px); }
+  0% { opacity: 0; transform: scale(0.94) translateY(12px); }
   100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Contact Segmented Switcher Tabs */
+.contact-tab-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  padding: 8px 10px !important;
+  border-radius: 10px !important;
+  border: none !important;
+  background: transparent !important;
+  color: #64748b !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.contact-tab-btn:hover {
+  color: #0f172a !important;
+}
+
+.contact-tab-btn.active {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+}
+
+.contact-tab-btn[data-tab="whatsapp"].active {
+  color: #15803d !important;
+}
+
+.contact-tab-btn[data-tab="message"].active {
+  color: #6A760C !important;
+}
+
+.contact-tab-btn[data-tab="call"].active {
+  color: #0f172a !important;
+}
+
+/* Tab Panels transition */
+.tab-panel {
+  display: block;
+  animation: tabFadeIn 0.2s ease-out;
+}
+
+.tab-panel.hidden {
+  display: none !important;
+}
+
+@keyframes tabFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hotline station hover card */
+.hotline-station {
+  transition: all 0.18s ease;
+}
+
+.hotline-station:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+}
+
+/* Line choice radio pills */
+.line-choice-pill input:checked + span {
+  color: #6A760C;
+  font-weight: 800;
 }
 
 /* Movable Floating Demo Widget */

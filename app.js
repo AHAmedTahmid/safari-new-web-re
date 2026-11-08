@@ -828,7 +828,8 @@ function showToast(message, type = 'info') {
 }
 
 /* -------------------------------------------------------------
- * 10. Unified 3-Layer Contact Dock & Card (WhatsApp, Message, Call)
+ * 10. Unified 3-Channel Dual-Hotline Contact Hub
+ * Supports both 01348214140 & 01348214141 for WhatsApp, Message, Call
  * Matches Safari Brand Olive (#6A760C) & WhatsApp (#25D366) Theme
  * ----------------------------------------------------------- */
 function setupUnifiedContactWidget() {
@@ -840,44 +841,42 @@ function setupUnifiedContactWidget() {
   const card = document.getElementById('safari-contact-card');
   const cardCloseBtn = document.getElementById('safari-card-close-btn');
 
-  const layerWa = document.getElementById('card-layer-whatsapp');
-  const layerMsg = document.getElementById('card-layer-message');
-  const layerCall = document.getElementById('card-layer-call');
+  const tabBtns = document.querySelectorAll('.contact-tab-btn');
+  const tabPanels = document.querySelectorAll('.tab-panel');
 
-  const msgToggleTrigger = document.getElementById('message-toggle-trigger');
-  const msgActionBtn = document.getElementById('message-action-btn');
-  const quickInquiryBox = document.getElementById('quick-inquiry-box');
   const msgForm = document.getElementById('safari-quick-msg-form');
   const msgInput = document.getElementById('safari-quick-msg-input');
   const promptChips = document.querySelectorAll('[data-prompt-chip]');
+  const lineRadios = document.querySelectorAll('input[name="msg-target-line"]');
+  const targetLineDisplay = document.getElementById('target-line-display');
 
   const countryToggle = document.getElementById('country-numbers-toggle');
   const countryList = document.getElementById('country-numbers-list');
+  const copyBtns = document.querySelectorAll('.copy-phone-btn');
 
   if (!card) return;
 
-  function openCard(focusLayer) {
-    card.classList.remove('hidden');
-
-    // Reset temporary highlight rings
-    [layerWa, layerMsg, layerCall].forEach(l => {
-      if (l) l.classList.remove('ring-2', 'ring-safari', 'ring-emerald-400');
+  function switchTab(tabName) {
+    tabBtns.forEach(btn => {
+      const match = btn.getAttribute('data-tab') === tabName;
+      btn.classList.toggle('active', match);
+      btn.setAttribute('aria-selected', match ? 'true' : 'false');
     });
 
-    if (focusLayer === 'whatsapp' && layerWa) {
-      layerWa.classList.add('ring-2', 'ring-emerald-400');
-      setTimeout(() => layerWa.classList.remove('ring-2', 'ring-emerald-400'), 1600);
-    } else if (focusLayer === 'message' && layerMsg) {
-      layerMsg.classList.add('ring-2', 'ring-safari');
-      if (quickInquiryBox && quickInquiryBox.classList.contains('hidden')) {
-        quickInquiryBox.classList.remove('hidden');
-      }
-      if (msgInput) msgInput.focus();
-      setTimeout(() => layerMsg.classList.remove('ring-2', 'ring-safari'), 1600);
-    } else if (focusLayer === 'call' && layerCall) {
-      layerCall.classList.add('ring-2', 'ring-safari');
-      setTimeout(() => layerCall.classList.remove('ring-2', 'ring-safari'), 1600);
+    tabPanels.forEach(panel => {
+      const match = panel.id === `panel-${tabName}`;
+      panel.classList.toggle('hidden', !match);
+      panel.classList.toggle('active', match);
+    });
+
+    if (tabName === 'message' && msgInput) {
+      setTimeout(() => msgInput.focus(), 150);
     }
+  }
+
+  function openCard(tabName = 'whatsapp') {
+    card.classList.remove('hidden');
+    switchTab(tabName);
   }
 
   function closeCard() {
@@ -892,6 +891,15 @@ function setupUnifiedContactWidget() {
       closeCard();
     }
   }
+
+  // Tab button switching
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const tabName = btn.getAttribute('data-tab');
+      if (tabName) switchTab(tabName);
+    });
+  });
 
   // Dock Buttons Interactions
   if (waDockBtn) {
@@ -931,29 +939,44 @@ function setupUnifiedContactWidget() {
     });
   }
 
-  // Expand / collapse message inquiry panel
-  function toggleMessageInquiry() {
-    if (quickInquiryBox) {
-      quickInquiryBox.classList.toggle('hidden');
-      if (!quickInquiryBox.classList.contains('hidden') && msgInput) {
-        msgInput.focus();
-      }
-    }
-  }
-
-  if (msgToggleTrigger) {
-    msgToggleTrigger.addEventListener('click', (e) => {
-      if (e.target.closest('#message-action-btn')) return;
-      toggleMessageInquiry();
-    });
-  }
-
-  if (msgActionBtn) {
-    msgActionBtn.addEventListener('click', (e) => {
+  // Copy phone number buttons with clipboard feedback
+  copyBtns.forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
       e.stopPropagation();
-      toggleMessageInquiry();
+      const num = btn.getAttribute('data-copy');
+      if (!num) return;
+      try {
+        await navigator.clipboard.writeText(num);
+        showToast(`Copied ${num} to clipboard!`, 'success');
+        const originalHtml = btn.innerHTML;
+        btn.innerHTML = `<svg class="w-3.5 h-3.5 text-emerald-600 stroke-current stroke-[2.5]" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+        setTimeout(() => { btn.innerHTML = originalHtml; }, 1800);
+      } catch (err) {
+        showToast(`Hotline: ${num}`, 'info');
+      }
     });
-  }
+  });
+
+  // Line selection radio feedback
+  lineRadios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      const selectedLine = radio.value;
+      if (targetLineDisplay) {
+        targetLineDisplay.textContent = `Routing to: ${selectedLine}`;
+      }
+      document.querySelectorAll('.line-choice-pill').forEach(pill => {
+        const input = pill.querySelector('input');
+        if (input && input.checked) {
+          pill.classList.add('border-safari', 'bg-safari-50/50', 'text-slate-900');
+          pill.classList.remove('border-slate-200', 'bg-white', 'text-slate-700');
+        } else {
+          pill.classList.remove('border-safari', 'bg-safari-50/50', 'text-slate-900');
+          pill.classList.add('border-slate-200', 'bg-white', 'text-slate-700');
+        }
+      });
+    });
+  });
 
   // Quick prompt chips
   promptChips.forEach(chip => {
@@ -967,7 +990,7 @@ function setupUnifiedContactWidget() {
     });
   });
 
-  // Message Form Submission (Sends via WhatsApp with clean prompt)
+  // Message Form Submission (Sends via WhatsApp to chosen line)
   if (msgForm) {
     msgForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -976,9 +999,14 @@ function setupUnifiedContactWidget() {
         if (msgInput) msgInput.focus();
         return;
       }
+      let chosenLine = '01348214140';
+      const checkedRadio = document.querySelector('input[name="msg-target-line"]:checked');
+      if (checkedRadio && checkedRadio.value) {
+        chosenLine = checkedRadio.value;
+      }
       const encoded = encodeURIComponent(`Hi Safari Solutions Team! ${text}`);
-      window.open(`https://wa.me/8801348214140?text=${encoded}`, '_blank', 'noopener,noreferrer');
-      showToast('Opening chat with your inquiry...', 'success');
+      window.open(`https://wa.me/88${chosenLine}?text=${encoded}`, '_blank', 'noopener,noreferrer');
+      showToast(`Opening chat with hotline ${chosenLine}...`, 'success');
       if (msgInput) msgInput.value = '';
       closeCard();
     });
