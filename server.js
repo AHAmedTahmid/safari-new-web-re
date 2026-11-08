@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = process.env.PORT || 3000;
+let currentPort = Number(process.env.PORT) || 3000;
 const BASE_DIR = __dirname;
 
 const MIME_TYPES = {
@@ -52,16 +52,16 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`Safari Solutions Web Server running at: http://localhost:${PORT}/`);
+server.listen(currentPort, () => {
+  console.log(`Safari Solutions Web Server running at: http://localhost:${currentPort}/`);
 });
 
 server.on('error', (err) => {
   if (err.code === 'EADDRINUSE') {
-    const fallbackPort = Number(PORT) + 1;
-    console.log(`Port ${PORT} is in use, retrying on port ${fallbackPort}...`);
-    server.listen(fallbackPort, () => {
-      console.log(`Safari Solutions Web Server running at: http://localhost:${fallbackPort}/`);
+    currentPort++;
+    console.log(`Port in use, retrying on port ${currentPort}...`);
+    server.listen(currentPort, () => {
+      console.log(`Safari Solutions Web Server running at: http://localhost:${currentPort}/`);
     });
   } else {
     console.error('Server error:', err);
