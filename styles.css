@@ -289,10 +289,13 @@ dialog[open] {
 /* Contact Segmented Switcher Tabs */
 .contact-tab-btn {
   display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
   align-items: center !important;
   justify-content: center !important;
   gap: 5px !important;
-  padding: 8px 10px !important;
+  padding: 7px 6px !important;
   border-radius: 10px !important;
   border: none !important;
   background: transparent !important;
