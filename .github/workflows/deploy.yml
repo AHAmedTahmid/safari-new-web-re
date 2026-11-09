@@ -23,20 +23,23 @@ jobs:
           SSH_PORT: ${{ secrets.SSH_PORT || '22' }}
         run: |
           mkdir -p ~/.ssh
+          # tr: a secret pasted from Windows can carry CRs, which make ssh
+          # reject the key file as invalid.
           printf '%s\n' "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_deploy
           chmod 600 ~/.ssh/id_deploy
-          echo "Key inspection:"
-          ssh-keygen -l -f ~/.ssh/id_deploy || echo "WARNING: ssh-keygen failed to parse id_deploy"
-          echo "=== Public key (ensure this is in ~/.ssh/authorized_keys on server) ==="
-          ssh-keygen -y -f ~/.ssh/id_deploy || true
           ssh-keyscan -p "$SSH_PORT" -H "$SSH_HOST" >> ~/.ssh/known_hosts
+          test -s ~/.ssh/known_hosts
 
       # Copies the site files only. Files deleted from the repo are NOT removed
       # from the server; add --delete to rsync if the target folder holds only this site.
       - name: Upload site with rsync
         env:
           SSH_HOST: ${{ secrets.SSH_HOST }}
-          SSH_USER: ${{ secrets.SSH_USER }}
+          # deploy, not secrets.SSH_USER: that secret holds root, and this
+          # repo's key is authorized only for deploy, the user that owns the
+          # site folder. Do not authorize it for root instead: the server runs
+          # more than this site.
+          SSH_USER: deploy
           SSH_PORT: ${{ secrets.SSH_PORT || '22' }}
           DEPLOY_PATH: /var/www/safaribs-site
         run: |
@@ -47,5 +50,5 @@ jobs:
             --exclude 'server.js' \
             --exclude 'README.md' \
             --exclude 'CLAUDE.md' \
-            -e "ssh -v -i ~/.ssh/id_deploy -p $SSH_PORT -o BatchMode=yes -o StrictHostKeyChecking=accept-new -o PubkeyAcceptedKeyTypes=+ssh-rsa" \
+            -e "ssh -i ~/.ssh/id_deploy -p $SSH_PORT -o BatchMode=yes -o IdentitiesOnly=yes" \
             ./ "$SSH_USER@$SSH_HOST:$DEPLOY_PATH/"
